@@ -308,8 +308,9 @@
         var(--card);
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
     }
-    .growth-figure { position: relative; margin: 0; }
-    #growth-chart { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; }
+    .growth-figure { position: relative; margin: 0; overflow-x: auto; scrollbar-width: none; }
+    .growth-figure::-webkit-scrollbar { display: none; }
+    #growth-chart { display: block; height: auto; overflow: visible; }
     #growth-chart .grid { stroke: rgba(255, 255, 255, 0.07); stroke-width: 1; }
     #growth-chart .base { stroke: rgba(255, 255, 255, 0.18); stroke-width: 1; }
     #growth-chart .tick { fill: var(--muted); font: 500 12px var(--sans); }
@@ -340,25 +341,63 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
     .growth-tip b { color: #fff; }
-    .growth-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
-    .growth-steps li {
-      display: grid;
-      gap: 2px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line-soft);
-      background: rgba(15, 18, 28, 0.6);
-    }
-    .growth-steps li:last-child { border-color: var(--blue-line); background: var(--blue-tint); }
-    .growth-day { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
-    .growth-steps b { font-family: var(--display); font-weight: 800; font-size: 20px; color: #fff; }
-    .growth-steps li > span:last-child { font-size: 14px; color: var(--muted); }
-    .growth-note { margin-top: 16px; font-size: 12px; color: #6b7184; text-align: center; }
+    .growth-swipe { margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--accent); text-align: center; }
+    .growth-swipe[hidden] { display: none; }
+    .growth-note { margin-top: 20px; font-size: 12px; color: #6b7184; text-align: center; }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     @keyframes growth-pulse { from { transform: scale(1); opacity: 0.8; } to { transform: scale(2.6); opacity: 0; } }
     @media (prefers-reduced-motion: no-preference) {
       #growth-chart .ring { animation: growth-pulse 2.2s ease-out infinite; }
     }
+
+    /* ---------- With vs without ---------- */
+    .vs-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .vs-card { padding: 36px; border-radius: 18px; border: 1px solid var(--line-soft); background: rgba(15, 18, 28, 0.7); }
+    .vs-card.good {
+      border-color: var(--blue-line);
+      background: linear-gradient(160deg, rgba(26, 92, 255, 0.22) 0%, var(--card) 55%);
+      box-shadow: 0 30px 90px rgba(26, 92, 255, 0.12);
+    }
+    .vs-head { display: flex; align-items: center; gap: 16px; padding-bottom: 22px; margin-bottom: 24px; border-bottom: 1px solid var(--line-soft); }
+    .vs-icon { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 10px; background: rgba(255, 255, 255, 0.08); color: var(--muted); }
+    .good .vs-icon { background: var(--blue); color: #fff; }
+    .vs .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .vs .good .eyebrow { color: var(--accent); }
+    .vs-head h3 { font-size: 24px; }
+    .vs-mid {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 0 0 6px #1a1f30;
+      z-index: 2;
+    }
+    .vs .list { list-style: none; display: grid; gap: 12px; }
+    .vs .list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: rgba(15, 18, 28, 0.6);
+      border: 1px solid var(--line-soft);
+      color: var(--body);
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .vs .ico { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; color: #fff; }
+    .vs .ico.x { background: #3a4155; }
+    .vs .ico.ok { background: var(--blue); }
 
     /* ---------- Head coach ---------- */
     .coach-card {
@@ -453,8 +492,9 @@
       .stat { border-left: 0; }
       .btn { width: 100%; padding: 18px 20px; }
       .final-card { padding: 48px 20px; }
+      .vs-grid { grid-template-columns: 1fr; gap: 48px; }
+      .vs-card { padding: 28px 22px; }
       .growth-card { padding: 18px 14px 16px; }
-      .growth-steps { grid-template-columns: 1fr 1fr; }
       .coach-card { padding: 28px 22px; }
       .coach-top { grid-template-columns: 1fr; gap: 20px; }
       .coach-stats { grid-template-columns: 1fr 1fr; row-gap: 24px; }
@@ -623,16 +663,57 @@
           </figcaption>
         </figure>
 
-        <!-- Milestones double as the chart's table view -->
-        <ol class="growth-steps">
-          <li><span class="growth-day">Day 30</span><b>Escaped Video Jail</b><span>2M views</span></li>
-          <li><span class="growth-day">Day 60</span><b>Monetized</b><span>10M views</span></li>
-          <li><span class="growth-day">Day 90</span><b>$5K / month</b><span>25M views</span></li>
-          <li><span class="growth-day">Day 120</span><b>$10K / month</b><span>45M views</span></li>
-          <li><span class="growth-day">Day 150</span><b>Second Channel</b><span>70M views</span></li>
-          <li><span class="growth-day">Day 180</span><b>$15–20K / month</b><span>100M views</span></li>
-        </ol>
+        <p class="growth-swipe" id="growth-swipe" hidden>Swipe to see all 180 days →</p>
         <p class="growth-note">Illustrative path based on what our students have done. Results vary with your topic, consistency and effort.</p>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WITH vs WITHOUT ================= -->
+  <section class="vs">
+    <div class="wrap">
+      <div class="vs-grid">
+        <div class="vs-card">
+          <div class="vs-head">
+            <span class="vs-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+            <div>
+              <div class="eyebrow">Doing It Alone</div>
+              <h3>Without 6-Figure Channel Launchpad</h3>
+            </div>
+          </div>
+          <ul class="list">
+            <li><span class="ico x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Guessing which niche</li>
+            <li><span class="ico x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Hours to edit per video</li>
+            <li><span class="ico x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Stuck in view jail</li>
+            <li><span class="ico x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Still not monetized after months</li>
+            <li><span class="ico x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>No clue why nothing is working</li>
+            <li><span class="ico x"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Giving up before it works</li>
+          </ul>
+        </div>
+
+        <div class="vs-mid">VS</div>
+
+        <div class="vs-card good">
+          <div class="vs-head">
+            <span class="vs-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div>
+              <div class="eyebrow">Inside The Program</div>
+              <h3>With 6-Figure Channel Launchpad</h3>
+            </div>
+          </div>
+          <ul class="list">
+            <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Niche picked for you</li>
+            <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>1 hour/day editing workflow</li>
+            <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Millions of views</li>
+            <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>YouTube Partner Program acceptance</li>
+            <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Weekly content strategy</li>
+            <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>1-on-1 coaching the whole way</li>
+          </ul>
+        </div>
       </div>
 
       <div class="cta-row">
@@ -849,8 +930,11 @@
 
       let drawn = false;
       function render() {
-        const W = svg.parentElement.clientWidth;
-        const small = W < 560;
+        // Narrow screens get a full-size chart that scrolls sideways, so every label stays readable
+        const W = Math.max(svg.parentElement.clientWidth, 760);
+        svg.style.width = W + "px";
+        document.getElementById("growth-swipe").hidden = W <= svg.parentElement.clientWidth;
+        const small = false;
         const H = small ? 300 : 400;
         const pad = { l: small ? 40 : 52, r: small ? 16 : 28, t: 24, b: 40 };
         const X = (day) => pad.l + (day / DAYS) * (W - pad.l - pad.r);
@@ -886,8 +970,6 @@
           el("line", { class: "drop", x1: cx, x2: cx, y1: cy, y2: Y(0) }, marks);
           el("circle", { class: "ring", cx, cy, r: 7, style: `animation-delay:${i * 0.4}s` }, marks);
           el("circle", { class: "dot", cx, cy, r: 7 }, marks);
-          // Narrow screens: dots only; the milestone cards below carry the labels
-          if (W < 720) return;
 
           const chip = el("g", { class: "chip" }, marks);
           const k = el("text", { class: "k" }, chip);
