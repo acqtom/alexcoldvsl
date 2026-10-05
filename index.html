@@ -454,7 +454,7 @@
       .btn { width: 100%; padding: 18px 20px; }
       .final-card { padding: 48px 20px; }
       .growth-card { padding: 18px 14px 16px; }
-      .growth-steps { grid-template-columns: 1fr; }
+      .growth-steps { grid-template-columns: 1fr 1fr; }
       .coach-card { padding: 28px 22px; }
       .coach-top { grid-template-columns: 1fr; gap: 20px; }
       .coach-stats { grid-template-columns: 1fr 1fr; row-gap: 24px; }
@@ -611,7 +611,7 @@
   <!-- ================= GROWTH CHART ================= -->
   <section class="growth">
     <div class="wrap">
-      <h2 class="section-title">What Your First <span class="gold">90 Days</span> Can Look Like</h2>
+      <h2 class="section-title">What The Next <span class="gold">180 Days</span> Can Look Like</h2>
       <p class="section-sub">Views compound. Once your channel is monetized, every extra million views turns into more money each month.</p>
 
       <div class="growth-card">
@@ -619,15 +619,18 @@
           <svg id="growth-chart" role="img" aria-labelledby="growth-desc"></svg>
           <div class="growth-tip" id="growth-tip" hidden></div>
           <figcaption id="growth-desc" class="sr-only">
-            Line chart of channel views over 90 days. Day 30: 10 million views, monetized. Day 60: 30 million views, about $5K per month. Day 90: 60 million views, $10–15K per month.
+            Line chart of channel views over 180 days. Day 30: 2 million views, escaped video jail. Day 60: 10 million views, monetized. Day 90: 25 million views, $5K per month. Day 120: 45 million views, $10K per month. Day 150: 70 million views, second channel. Day 180: 100 million views, $15–20K per month.
           </figcaption>
         </figure>
 
         <!-- Milestones double as the chart's table view -->
         <ol class="growth-steps">
-          <li><span class="growth-day">Day 30</span><b>Monetized</b><span>10M views</span></li>
-          <li><span class="growth-day">Day 60</span><b>$5K / month</b><span>30M views</span></li>
-          <li><span class="growth-day">Day 90</span><b>$10–15K / month</b><span>60M views</span></li>
+          <li><span class="growth-day">Day 30</span><b>Escaped Video Jail</b><span>2M views</span></li>
+          <li><span class="growth-day">Day 60</span><b>Monetized</b><span>10M views</span></li>
+          <li><span class="growth-day">Day 90</span><b>$5K / month</b><span>25M views</span></li>
+          <li><span class="growth-day">Day 120</span><b>$10K / month</b><span>45M views</span></li>
+          <li><span class="growth-day">Day 150</span><b>Second Channel</b><span>70M views</span></li>
+          <li><span class="growth-day">Day 180</span><b>$15–20K / month</b><span>100M views</span></li>
         </ol>
         <p class="growth-note">Illustrative path based on what our students have done. Results vary with your topic, consistency and effort.</p>
       </div>
@@ -800,19 +803,23 @@
     modal.addEventListener("click", (e) => e.target === modal && closeModal());
     document.addEventListener("keydown", (e) => e.key === "Escape" && !modal.hidden && closeModal());
 
-    /* ---------- Growth chart: views over the first 90 days, money as milestones ---------- */
+    /* ---------- Growth chart: views over the next 180 days, money as milestones ---------- */
     (function growthChart() {
       const svg = document.getElementById("growth-chart");
       const tip = document.getElementById("growth-tip");
       // [day, views in millions]; milestones carry the money label
-      const POINTS = [[0, 0], [30, 10], [60, 30], [90, 60]];
       const MILESTONES = [
-        { day: 30, views: 10, label: "Monetized" },
-        { day: 60, views: 30, label: "$5K / month" },
-        { day: 90, views: 60, label: "$10–15K / month" },
+        { day: 30, views: 2, label: "Escaped Video Jail" },
+        { day: 60, views: 10, label: "Monetized" },
+        { day: 90, views: 25, label: "$5K / month" },
+        { day: 120, views: 45, label: "$10K / month" },
+        { day: 150, views: 70, label: "Second Channel" },
+        { day: 180, views: 100, label: "$15–20K / month" },
       ];
-      const Y_TICKS = [0, 10, 30, 60];
-      const Y_MAX = 66;
+      const POINTS = [[0, 0], ...MILESTONES.map((ms) => [ms.day, ms.views])];
+      const DAYS = 180;
+      const Y_TICKS = [0, 25, 50, 75, 100];
+      const Y_MAX = 108;
       const NS = "http://www.w3.org/2000/svg";
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -828,8 +835,10 @@
         return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1];
       }
       const fmt = (v) => (v >= 10 ? Math.round(v) : v.toFixed(1)) + "M";
-      const stage = (day) =>
-        day < 30 ? "Building toward monetization" : day < 60 ? "Monetized and earning" : day < 90 ? "Past $5K / month" : "$10–15K / month";
+      const stage = (day) => {
+        const hit = MILESTONES.filter((ms) => ms.day <= day).pop();
+        return hit ? hit.label : "Finding your niche and posting daily";
+      };
 
       const el = (tag, attrs, parent) => {
         const n = document.createElementNS(NS, tag);
@@ -844,7 +853,7 @@
         const small = W < 560;
         const H = small ? 300 : 400;
         const pad = { l: small ? 40 : 52, r: small ? 16 : 28, t: 24, b: 40 };
-        const X = (day) => pad.l + (day / 90) * (W - pad.l - pad.r);
+        const X = (day) => pad.l + (day / DAYS) * (W - pad.l - pad.r);
         const Y = (v) => pad.t + (1 - v / Y_MAX) * (H - pad.t - pad.b);
         svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
         svg.innerHTML = "";
@@ -859,15 +868,15 @@
           el("line", { class: v === 0 ? "base" : "grid", x1: pad.l, x2: W - pad.r, y1: Y(v), y2: Y(v) }, svg);
           el("text", { class: "tick", x: pad.l - 10, y: Y(v) + 4, "text-anchor": "end" }, svg).textContent = v === 0 ? "0" : v + "M";
         });
-        [0, 30, 60, 90].forEach((day) => {
-          el("text", { class: "tick", x: X(day), y: H - pad.b + 22, "text-anchor": day === 0 ? "start" : day === 90 ? "end" : "middle" }, svg).textContent = "Day " + day;
+        (small ? [0, 60, 120, 180] : [0, 30, 60, 90, 120, 150, 180]).forEach((day) => {
+          el("text", { class: "tick", x: X(day), y: H - pad.b + 22, "text-anchor": day === 0 ? "start" : day === DAYS ? "end" : "middle" }, svg).textContent = (small ? "" : "Day ") + day;
         });
         if (!small) el("text", { class: "axis-title", x: pad.l, y: pad.t - 10 }, svg).textContent = "Views";
 
         // curve + area
         let line = "";
-        for (let day = 0; day <= 90; day += 1) line += (day ? "L" : "M") + X(day).toFixed(1) + "," + Y(viewsAt(day)).toFixed(1);
-        const area = el("path", { d: `${line}L${X(90)},${Y(0)}L${X(0)},${Y(0)}Z`, fill: "url(#growth-fill)" }, svg);
+        for (let day = 0; day <= DAYS; day += 1) line += (day ? "L" : "M") + X(day).toFixed(1) + "," + Y(viewsAt(day)).toFixed(1);
+        const area = el("path", { d: `${line}L${X(DAYS)},${Y(0)}L${X(0)},${Y(0)}Z`, fill: "url(#growth-fill)" }, svg);
         const path = el("path", { class: "line", d: line }, svg);
 
         // milestones: drop line, pulsing ring, dot, money chip
@@ -877,6 +886,8 @@
           el("line", { class: "drop", x1: cx, x2: cx, y1: cy, y2: Y(0) }, marks);
           el("circle", { class: "ring", cx, cy, r: 7, style: `animation-delay:${i * 0.4}s` }, marks);
           el("circle", { class: "dot", cx, cy, r: 7 }, marks);
+          // Narrow screens: dots only; the milestone cards below carry the labels
+          if (W < 720) return;
 
           const chip = el("g", { class: "chip" }, marks);
           const k = el("text", { class: "k" }, chip);
@@ -885,10 +896,9 @@
           v.textContent = ms.label;
           const w = Math.max(k.getComputedTextLength(), v.getComputedTextLength()) + 24;
           const h = 48;
-          // chips sit up-and-left of each dot; the last one tucks left so it stays inside the card
-          let bx = i === MILESTONES.length - 1 ? cx - w - 16 : cx - w / 2;
+          // chips sit above each dot; the first leans left so it clears its neighbour
+          let bx = i === 0 ? cx - w + 16 : cx - w / 2;
           let by = cy - h - 18;
-          if (i === MILESTONES.length - 1) by = cy - h / 2 + 4;
           bx = Math.max(pad.l, Math.min(bx, W - pad.r - w));
           by = Math.max(0, by);
           el("rect", { x: bx, y: by, width: w, height: h, rx: 10 }, chip).parentNode.insertBefore(chip.lastChild, chip.firstChild);
@@ -903,7 +913,7 @@
         const move = (e) => {
           const r = svg.getBoundingClientRect();
           const px = ((e.clientX - r.left) / r.width) * W;
-          const day = Math.max(0, Math.min(90, Math.round(((px - pad.l) / (W - pad.l - pad.r)) * 90)));
+          const day = Math.max(0, Math.min(DAYS, Math.round(((px - pad.l) / (W - pad.l - pad.r)) * DAYS)));
           const v = viewsAt(day), cx = X(day), cy = Y(v);
           cross.setAttribute("x1", cx); cross.setAttribute("x2", cx);
           focus.setAttribute("cx", cx); focus.setAttribute("cy", cy);
