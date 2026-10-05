@@ -195,162 +195,11 @@
     .stat span { font-size: 13px; color: var(--muted); }
 
 
-    /* ---------- Quiz form ---------- */
-    .apply-head { max-width: 620px; margin: 64px auto 0; text-align: center; scroll-margin-top: 24px; }
-    .apply-head h2 { font-size: clamp(28px, 3.6vw, 38px); }
-    .apply-head p { margin-top: 12px; color: var(--muted); font-size: 17px; line-height: 1.6; }
-    .quiz {
-      max-width: 620px;
-      margin: 28px auto 0;
-      padding: 28px 28px 24px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      background: rgba(22, 26, 39, 0.82);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-      text-align: left;
-      scroll-margin-top: 24px;
-    }
-    .q-progress {
-      position: relative;
-      height: 20px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(10, 12, 20, 0.6);
-      overflow: hidden;
-    }
-    .q-progress-fill {
-      height: 100%;
-      min-width: 46px;
-      padding-right: 10px;
-      border-radius: 999px;
-      background: var(--blue);
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      font-size: 11px;
-      font-weight: 700;
-      color: #fff;
-      transition: width 0.4s ease;
-    }
-    .q-title { margin-top: 28px; font-size: clamp(22px, 3vw, 28px); line-height: 1.25; }
-    .q-sub { margin-top: 8px; color: var(--muted); font-size: 15px; }
-    .q-options { display: grid; gap: 12px; margin-top: 24px; }
-    .q-opt {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: 100%;
-      padding: 18px 16px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(40, 46, 64, 0.6);
-      color: var(--body);
-      font: inherit;
-      font-size: 16px;
-      text-align: left;
-      cursor: pointer;
-      transition: border-color 0.15s ease, background 0.15s ease;
-    }
-    .q-opt:hover { border-color: rgba(255, 255, 255, 0.3); }
-    .q-opt.sel { color: #fff; }
-    .q-ico {
-      flex: none;
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      color: var(--accent);
-    }
-    .q-radio { flex: none; margin-left: auto; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #c9ccd6; }
-    .q-check { flex: none; margin-left: auto; width: 22px; height: 22px; border-radius: 5px; border: 1.5px solid #c9ccd6; }
-    .q-opt.sel { border-color: #8fb0ff; background: rgba(91, 140, 255, 0.12); }
-    .q-opt.sel .q-radio, .q-opt.sel .q-check { border-color: #8fb0ff; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314161f' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 13px no-repeat, #8fb0ff; }
-    .q-fields { display: grid; gap: 12px; margin-top: 24px; }
-    .q-fields input {
-      width: 100%;
-      padding: 16px 18px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: rgba(40, 46, 64, 0.6);
-      color: #fff;
-      font: inherit;
-      font-size: 16px;
-      outline: none;
-    }
-    .q-fields label { display: grid; gap: 8px; font-size: 15px; font-weight: 500; color: var(--body); }
-    .q-fields .req { color: var(--muted); }
-    .q-phone { display: flex; gap: 8px; }
-    .q-phone select {
-      flex: none;
-      padding: 0 12px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: rgba(40, 46, 64, 0.6);
-      color: #fff;
-      font: inherit;
-      font-size: 15px;
-      outline: none;
-      cursor: pointer;
-    }
-    .q-phone select:focus { border-color: var(--blue); }
-    .q-phone option { background: #1d2335; }
-    .q-fields input:user-invalid { border-color: #8fb0ff; }
-    .q-fields input::placeholder { color: var(--muted); }
-    .q-fields input:focus { border-color: var(--blue); }
-    .q-next {
-      width: 100%;
-      margin-top: 24px;
-      padding: 16px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--muted);
-      font-family: var(--display);
-      font-weight: 700;
-      font-size: 17px;
-      cursor: not-allowed;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-    .q-next:enabled { background: var(--blue); border-color: var(--blue); color: #fff; cursor: pointer; box-shadow: 0 10px 30px rgba(26, 92, 255, 0.35); }
-    .q-next:enabled:hover { background: var(--blue-2); }
-    .q-back { display: block; margin: 14px auto 0; background: none; border: 0; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; }
-    .q-back:hover { color: #fff; }
-    .q-proof { margin-top: 22px; padding: 18px; border-radius: 16px; border: 1px solid var(--line); background: rgba(40, 46, 64, 0.45); }
-    .q-proof-head { display: flex; align-items: center; gap: 14px; }
-    .q-proof-head b { display: block; font-size: 16px; }
-    .q-proof-head span { font-size: 14px; color: var(--muted); }
-    .q-avatar { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--blue); font-family: var(--display); font-weight: 800; font-size: 18px; }
-    .q-proof-img { position: relative; margin-top: 16px; aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; background: #0f121c; border: 1px solid var(--line-soft); }
-    .q-proof-img img { width: 100%; height: 100%; object-fit: contain; }
-    .q-proof-img .ph { position: absolute; inset: 0; display: grid; place-items: center; color: #6b7184; font-size: 13px; }
-    .q-proof-img img + .ph { display: none; }
-    .q-proof-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
-    .q-dots { display: flex; gap: 6px; }
-    .q-dots i { width: 6px; height: 6px; border-radius: 3px; background: #5a6075; transition: width 0.2s ease; }
-    .q-dots i.on { width: 18px; background: #8fb0ff; }
-    .q-arrows { display: flex; gap: 10px; }
-    .q-arrow { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
-    .q-arrow:disabled { opacity: 0.35; cursor: default; }
     /* ---------- Results carousel (cards/nav in assets/proof.css) ---------- */
-    .proof { max-width: 620px; margin: 256px auto 0; text-align: left; }
+    .proof { max-width: 620px; margin: 112px auto 0; text-align: left; }
     .proof-title { font-size: clamp(20px, 2.6vw, 25px); font-weight: 700; color: var(--muted); line-height: 1.5; }
     .proof-title b { color: #fff; }
     .proof-track { margin-top: 24px; }
-    .q-proof-img .ov {
-      position: absolute;
-      left: 12%;
-      bottom: 10%;
-      width: 72%;
-      height: auto;
-      border-radius: 8px;
-      border: 2px solid #fff;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      transform: rotate(-2deg);
-    }
-    .q-done { text-align: center; padding: 40px 0 8px; }
-    .q-done .q-ico { width: 56px; height: 56px; margin: 0 auto; border-radius: 50%; background: var(--blue); border: 0; color: #fff; }
 
     /* ---------- How it works (light section) ---------- */
     .how { padding: 72px 0 80px; }
@@ -406,6 +255,110 @@
     .bars { flex: 1; display: flex; align-items: flex-end; justify-content: space-around; }
     .bars i { display: block; width: 6px; border-radius: 3px; background: #1a7a36; }
     .phone.soft .bars i { width: 4px; background: #8cc49c; }
+
+    /* ---------- Application popup ---------- */
+    .apply-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: rgba(5, 7, 12, 0.8);
+      backdrop-filter: blur(4px);
+    }
+    .apply-modal[hidden] { display: none; }
+    .apply-box {
+      position: relative;
+      width: min(760px, 100%);
+      height: min(640px, calc(100vh - 32px));
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
+    }
+    .apply-box [data-tf-live], .apply-box [data-tf-widget], .apply-box .tf-v1-widget, .apply-box iframe { width: 100% !important; height: 100% !important; }
+    .apply-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(20, 22, 31, 0.85);
+      color: #fff;
+      cursor: pointer;
+    }
+    .apply-close:hover { background: var(--blue); }
+
+    /* ---------- Growth chart ---------- */
+    .growth-card {
+      max-width: 940px;
+      margin: 48px auto 0;
+      padding: 28px 28px 24px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse 60% 70% at 85% 10%, rgba(26, 92, 255, 0.16), transparent 70%),
+        var(--card);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+    .growth-figure { position: relative; margin: 0; }
+    #growth-chart { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; }
+    #growth-chart .grid { stroke: rgba(255, 255, 255, 0.07); stroke-width: 1; }
+    #growth-chart .base { stroke: rgba(255, 255, 255, 0.18); stroke-width: 1; }
+    #growth-chart .tick { fill: var(--muted); font: 500 12px var(--sans); }
+    #growth-chart .axis-title { fill: #6b7184; font: 600 11px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; }
+    #growth-chart .line { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(91, 140, 255, 0.55)); }
+    #growth-chart .drop { stroke: rgba(91, 140, 255, 0.35); stroke-width: 1; stroke-dasharray: 3 4; }
+    #growth-chart .dot { fill: #fff; stroke: var(--blue); stroke-width: 4; }
+    #growth-chart .ring { fill: none; stroke: var(--accent); stroke-width: 2; transform-box: fill-box; transform-origin: center; }
+    #growth-chart .chip rect { fill: #0f1320; stroke: var(--blue-line); stroke-width: 1; }
+    #growth-chart .chip .k { fill: var(--muted); font: 600 11px var(--sans); letter-spacing: 0.08em; text-transform: uppercase; }
+    #growth-chart .chip .v { fill: #fff; font: 800 16px var(--display); }
+    #growth-chart .cross { stroke: rgba(255, 255, 255, 0.35); stroke-width: 1; }
+    #growth-chart .focus { fill: var(--accent); stroke: #0f1320; stroke-width: 2; }
+    .growth-tip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(12, 15, 25, 0.95);
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--muted);
+      white-space: nowrap;
+      pointer-events: none;
+      transform: translate(-50%, calc(-100% - 14px));
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .growth-tip b { color: #fff; }
+    .growth-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+    .growth-steps li {
+      display: grid;
+      gap: 2px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line-soft);
+      background: rgba(15, 18, 28, 0.6);
+    }
+    .growth-steps li:last-child { border-color: var(--blue-line); background: var(--blue-tint); }
+    .growth-day { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+    .growth-steps b { font-family: var(--display); font-weight: 800; font-size: 20px; color: #fff; }
+    .growth-steps li > span:last-child { font-size: 14px; color: var(--muted); }
+    .growth-note { margin-top: 16px; font-size: 12px; color: #6b7184; text-align: center; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    @keyframes growth-pulse { from { transform: scale(1); opacity: 0.8; } to { transform: scale(2.6); opacity: 0; } }
+    @media (prefers-reduced-motion: no-preference) {
+      #growth-chart .ring { animation: growth-pulse 2.2s ease-out infinite; }
+    }
 
     /* ---------- Head coach ---------- */
     .coach-card {
@@ -500,11 +453,12 @@
       .stat { border-left: 0; }
       .btn { width: 100%; padding: 18px 20px; }
       .final-card { padding: 48px 20px; }
+      .growth-card { padding: 18px 14px 16px; }
+      .growth-steps { grid-template-columns: 1fr; }
       .coach-card { padding: 28px 22px; }
       .coach-top { grid-template-columns: 1fr; gap: 20px; }
       .coach-stats { grid-template-columns: 1fr 1fr; row-gap: 24px; }
-      .quiz { padding: 20px 16px 18px; border-radius: 16px; }
-      .proof { margin-top: 176px; }
+      .proof { margin-top: 80px; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .footer-links { align-items: flex-start; }
     }
@@ -556,16 +510,9 @@
         <vturb-smartplayer id="vid-6a6a9a2d25b1229f3890948f" style="display: block; margin: 0 auto; width: 100%;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
       </div>
 
-      <!-- Multi-step application form. Questions live in QUESTIONS in the script at the bottom. -->
       <div class="cta-row" style="margin-top:36px">
-        <a class="btn js-cta" href="#apply">Schedule My Free Strategy Session <span class="arrow">↓</span></a>
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
       </div>
-
-      <div class="apply-head" id="apply">
-        <h2>Apply to Work With <span class="gold">Alex</span></h2>
-        <p>Watched the video and ready to build income past your ceiling? Fill out the short application below. If it looks like a fit, we'll book a call to map out your YouTube payout.</p>
-      </div>
-      <div class="quiz" id="quiz" aria-live="polite"></div>
 
       <!-- Student results carousel. Slides come from PROOF in the script; photos go in assets/proof/ -->
       <div class="proof">
@@ -580,7 +527,7 @@
       </div>
 
       <div class="cta-row">
-        <a class="btn js-cta" href="#apply">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
       </div>
 
     </div>
@@ -657,7 +604,37 @@
       </div>
 
       <div class="cta-row">
-        <a class="btn js-cta" href="#apply">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GROWTH CHART ================= -->
+  <section class="growth">
+    <div class="wrap">
+      <h2 class="section-title">What Your First <span class="gold">90 Days</span> Can Look Like</h2>
+      <p class="section-sub">Views compound. Once your channel is monetized, every extra million views turns into more money each month.</p>
+
+      <div class="growth-card">
+        <figure class="growth-figure">
+          <svg id="growth-chart" role="img" aria-labelledby="growth-desc"></svg>
+          <div class="growth-tip" id="growth-tip" hidden></div>
+          <figcaption id="growth-desc" class="sr-only">
+            Line chart of channel views over 90 days. Day 30: 10 million views, monetized. Day 60: 30 million views, about $5K per month. Day 90: 60 million views, $10–15K per month.
+          </figcaption>
+        </figure>
+
+        <!-- Milestones double as the chart's table view -->
+        <ol class="growth-steps">
+          <li><span class="growth-day">Day 30</span><b>Monetized</b><span>10M views</span></li>
+          <li><span class="growth-day">Day 60</span><b>$5K / month</b><span>30M views</span></li>
+          <li><span class="growth-day">Day 90</span><b>$10–15K / month</b><span>60M views</span></li>
+        </ol>
+        <p class="growth-note">Illustrative path based on what our students have done. Results vary with your topic, consistency and effort.</p>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
@@ -791,268 +768,186 @@
 
   <div class="lightbox" id="lightbox" hidden><img alt="" /></div>
 
+  <!-- Application popup (Typeform live embed) -->
+  <div class="apply-modal" id="apply-modal" role="dialog" aria-modal="true" aria-label="Application" hidden>
+    <div class="apply-box">
+      <button type="button" class="apply-close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div data-tf-live="01KJDWECSYPTNXB3SP0YS4WEYR"></div>
+    </div>
+  </div>
+
   <script src="assets/proof.js"></script>
+  <script src="//embed.typeform.com/next/embed.js"></script>
   <script>
-    // Every "Schedule My Free Strategy Session" button jumps to the form under the VSL.
-    document.querySelectorAll(".js-cta").forEach((a) => (a.href = "#apply"));
-
-    /* ---------- Multi-step form ----------
-       Edit QUESTIONS to change the form. Step types:
-         choice  – single answer (radio)       multi – select all that apply (checkbox)
-         contact – first name / phone / email  proof – testimonial carousel, no answer needed */
-    const ICONS = {
-      sprout: '<path d="M7 20h10M12 20v-8M12 12c0-3-2-5-6-5 0 3 2 5 6 5zM12 10c0-3 2-6 6-6 0 3-2 6-6 6z"/>',
-      trend: '<path d="m3 17 6-6 4 4 8-8M14 7h7v7"/>',
-      star: '<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>',
-      crown: '<path d="m3 7 4.5 4L12 5l4.5 6L21 7l-2 11H5z"/>',
-      flame: '<path d="M12 21c-3.9 0-7-2.7-7-6.5 0-3.2 2.3-5.4 3.5-6.5.3 1.6 1.2 2.8 2.5 3.5C11 8 12 5 14.5 3c.4 3 4.5 5.4 4.5 11.5 0 3.8-3.1 6.5-7 6.5z"/>',
-      camera: '<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
-      pause: '<path d="M9 5v14M15 5v14"/>',
-      play: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/>',
-      dollar: '<path d="M12 3v18M16.5 7.5C16 6 14.3 5 12 5c-2.8 0-4.5 1.4-4.5 3.3 0 4.4 9 2.4 9 7 0 2-1.9 3.4-4.5 3.4-2.4 0-4.2-1-4.8-2.7"/>',
-      rocket: '<path d="M5 15c-1.5 1.3-2 4-2 6 2 0 4.7-.5 6-2M9 13l2 2M14.5 4.5C17 2 21 3 21 3s1 4-1.5 6.5L13 16l-5-5z"/><circle cx="15.5" cy="8.5" r="1.3"/>',
-      cog: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>',
-      user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/>',
-      laptop: '<rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/>',
-      building: '<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/>',
-      sofa: '<path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 12a2 2 0 0 1 4 0v2h10v-2a2 2 0 0 1 4 0v5H3zM5 17v2M19 17v2"/>',
-      briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>',
+    // Every "Schedule My Free Strategy Session" button opens the Typeform application in a popup.
+    // (Without JavaScript, the link opens the form on Typeform instead.)
+    const modal = document.getElementById("apply-modal");
+    const openModal = () => {
+      modal.hidden = false;
+      document.body.style.overflow = "hidden";
+      modal.querySelector(".apply-close").focus();
     };
+    const closeModal = () => {
+      modal.hidden = true;
+      document.body.style.overflow = "";
+    };
+    document.querySelectorAll(".js-cta").forEach((a) => {
+      a.href = "https://form.typeform.com/to/Uon4NRpj";
+      a.addEventListener("click", (e) => { e.preventDefault(); openModal(); });
+    });
+    modal.querySelector(".apply-close").addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => e.target === modal && closeModal());
+    document.addEventListener("keydown", (e) => e.key === "Escape" && !modal.hidden && closeModal());
 
-    const PROOF = proofList("assets/proof/");
+    /* ---------- Growth chart: views over the first 90 days, money as milestones ---------- */
+    (function growthChart() {
+      const svg = document.getElementById("growth-chart");
+      const tip = document.getElementById("growth-tip");
+      // [day, views in millions]; milestones carry the money label
+      const POINTS = [[0, 0], [30, 10], [60, 30], [90, 60]];
+      const MILESTONES = [
+        { day: 30, views: 10, label: "Monetized" },
+        { day: 60, views: 30, label: "$5K / month" },
+        { day: 90, views: 60, label: "$10–15K / month" },
+      ];
+      const Y_TICKS = [0, 10, 30, 60];
+      const Y_MAX = 66;
+      const NS = "http://www.w3.org/2000/svg";
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const QUESTIONS = [
-      {
-        id: "subscribers",
-        type: "choice",
-        title: "How many subscribers do you have across all your YouTube channels?",
-        options: [
-          { label: "0 – 1,000 subscribers", icon: "sprout" },
-          { label: "1,000 – 10,000 subscribers", icon: "trend" },
-          { label: "10,000 – 100,000 subscribers", icon: "star" },
-          { label: "100,000+ subscribers", icon: "crown" },
-        ],
-      },
-      {
-        id: "contact",
-        type: "contact",
-        title: "First, some details so we can get in touch if your application is successful",
-      },
-      {
-        id: "uploads",
-        type: "choice",
-        title: "How many videos are you uploading each week right now?",
-        options: [
-          { label: "4+ a week, I'm consistent", icon: "flame" },
-          { label: "1–3 videos a week", icon: "camera" },
-          { label: "0 a week, I'm not uploading right now", icon: "pause" },
-        ],
-      },
-      {
-        id: "proof",
-        type: "proof",
-        title: "You're in the right place.",
-        sub: "Here are a few students who joined this same workshop and went on to build a real YouTube income with faceless channels:",
-        slides: PROOF,
-      },
-      {
-        id: "help",
-        type: "multi",
-        title: "What do you want the MOST help with right now?",
-        sub: "Select all that apply",
-        options: [
-          { label: "Launching my first faceless channel", icon: "play" },
-          { label: "Getting monetized in the YouTube Partner Program", icon: "dollar" },
-          { label: "Scaling a channel that's already growing", icon: "rocket" },
-          { label: "Automating my channel with editors and systems", icon: "cog" },
-        ],
-      },
-      {
-        id: "job",
-        type: "choice",
-        title: "Do you currently have a job?",
-        options: [
-          { label: "Yes, I have a job", icon: "user" },
-          { label: "I'm a freelancer", icon: "laptop" },
-          { label: "I own a business", icon: "building" },
-          { label: "No, I don't have a job", icon: "sofa" },
-        ],
-      },
-      {
-        id: "income",
-        type: "choice",
-        title: "How much would it take each month to replace your current income?",
-        options: [
-          { label: "$0 – $1,000 / month", icon: "sprout" },
-          { label: "$1,000 – $5,000 / month", icon: "trend" },
-          { label: "$5,000 – $10,000 / month", icon: "briefcase" },
-          { label: "$10,000+ / month", icon: "crown" },
-        ],
-      },
-    ];
-
-    const COUNTRIES = [
-      ["🇺🇸", "+1", "US"], ["🇨🇦", "+1", "CA"], ["🇬🇧", "+44", "GB"], ["🇦🇺", "+61", "AU"],
-      ["🇳🇿", "+64", "NZ"], ["🇮🇪", "+353", "IE"], ["🇩🇪", "+49", "DE"], ["🇫🇷", "+33", "FR"],
-      ["🇳🇱", "+31", "NL"], ["🇪🇸", "+34", "ES"], ["🇮🇹", "+39", "IT"], ["🇸🇪", "+46", "SE"],
-      ["🇦🇪", "+971", "AE"], ["🇮🇳", "+91", "IN"], ["🇸🇬", "+65", "SG"], ["🇿🇦", "+27", "ZA"],
-      ["🇧🇷", "+55", "BR"], ["🇲🇽", "+52", "MX"], ["🇵🇭", "+63", "PH"], ["🇳🇬", "+234", "NG"],
-    ];
-
-    // The progress bar starts here on the first question and fills to 100% on submit.
-    const PROGRESS_START = 73;
-    // Set this to your webhook / CRM endpoint to receive submissions as JSON.
-    const FORM_ENDPOINT = "";
-
-    const quiz = document.getElementById("quiz");
-    const answers = {};
-    let step = 0;
-    let slide = 0;
-
-    const icon = (name, size = 18) =>
-      `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[name] || ""}</svg>`;
-    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-    const isReady = (q) =>
-      q.type === "choice" ? !!answers[q.id] :
-      q.type === "multi" ? (answers[q.id] || []).length > 0 :
-      true;
-
-    function optionsHTML(q) {
-      const multi = q.type === "multi";
-      const picked = multi ? answers[q.id] || [] : [answers[q.id]];
-      return `<div class="q-options" role="${multi ? "group" : "radiogroup"}">${q.options
-        .map((o, i) => {
-          const sel = picked.includes(o.label);
-          return `<button type="button" role="${multi ? "checkbox" : "radio"}" aria-checked="${sel}" class="q-opt${sel ? " sel" : ""}" data-i="${i}">
-            <span class="q-ico">${icon(o.icon)}</span>${esc(o.label)}<span class="${multi ? "q-check" : "q-radio"}"></span></button>`;
-        })
-        .join("")}</div>`;
-    }
-
-    function contactHTML() {
-      const c = answers.contact || {};
-      return `
-        <form class="q-fields" id="q-form" novalidate>
-          <label><span>First name <span class="req">*</span></span>
-            <input name="first_name" placeholder="Jane" autocomplete="given-name" required value="${esc(c.first_name || "")}" />
-          </label>
-          <label><span>Phone number <span class="req">*</span></span>
-            <span class="q-phone">
-              <select name="country" aria-label="Country code">${COUNTRIES.map(
-                ([f, d, iso]) => `<option value="${iso}"${(c.country || "US") === iso ? " selected" : ""}>${f} ${d}</option>`
-              ).join("")}</select>
-              <input name="phone" type="tel" placeholder="(201) 555-0123" autocomplete="tel-national" required value="${esc(c.phone || "")}" />
-            </span>
-          </label>
-          <label><span>Email <span class="req">*</span></span>
-            <input name="email" type="email" placeholder="name@example.com" autocomplete="email" required value="${esc(c.email || "")}" />
-          </label>
-        </form>`;
-    }
-
-    function proofHTML(q) {
-      const s = q.slides[slide];
-      return `
-        <div class="q-proof">
-          <div class="q-proof-head">
-            <span class="q-avatar">${esc(s.name[0])}</span>
-            <div><b>${esc(s.name)}</b><span>${esc(s.result)}</span></div>
-          </div>
-          <div class="q-proof-img">
-            <img src="${esc(s.img)}" alt="${esc(s.name)}'s results" onerror="this.remove()" />
-            <span class="ph">${esc(s.img)}</span>
-            ${s.overlay ? `<img class="ov" src="${esc(s.overlay)}" alt="" />` : ""}
-          </div>
-          <div class="q-proof-nav">
-            <div class="q-dots">${q.slides.map((_, i) => `<i class="${i === slide ? "on" : ""}"></i>`).join("")}</div>
-            <div class="q-arrows">
-              <button type="button" class="q-arrow" data-d="-1" aria-label="Previous" ${slide === 0 ? "disabled" : ""}>‹</button>
-              <button type="button" class="q-arrow" data-d="1" aria-label="Next" ${slide === q.slides.length - 1 ? "disabled" : ""}>›</button>
-            </div>
-          </div>
-        </div>`;
-    }
-
-    function render() {
-      const q = QUESTIONS[step];
-      const last = step === QUESTIONS.length - 1;
-      const pct = Math.round(PROGRESS_START + (step / QUESTIONS.length) * (100 - PROGRESS_START));
-      const body =
-        q.type === "contact" ? contactHTML() :
-        q.type === "proof" ? proofHTML(q) :
-        optionsHTML(q);
-
-      quiz.innerHTML = `
-        <div class="q-progress"><div class="q-progress-fill" style="width:${pct}%">${pct}%</div></div>
-        <h3 class="q-title">${esc(q.title)}</h3>
-        ${q.sub ? `<p class="q-sub">${esc(q.sub)}</p>` : ""}
-        ${body}
-        <button type="button" class="q-next" ${isReady(q) ? "" : "disabled"}>${last ? "Submit" : "Continue"} →</button>
-        ${step > 0 ? '<button type="button" class="q-back">← Back</button>' : ""}`;
-
-      quiz.querySelectorAll(".q-opt").forEach((b) =>
-        b.addEventListener("click", () => {
-          const label = q.options[b.dataset.i].label;
-          if (q.type === "multi") {
-            const set = new Set(answers[q.id] || []);
-            set.has(label) ? set.delete(label) : set.add(label);
-            answers[q.id] = [...set];
-          } else {
-            answers[q.id] = label;
-          }
-          render();
-        })
-      );
-      quiz.querySelectorAll(".q-arrow").forEach((b) =>
-        b.addEventListener("click", () => { slide += Number(b.dataset.d); render(); })
-      );
-      quiz.querySelector(".q-back")?.addEventListener("click", () => { saveContact(); step--; render(); });
-      quiz.querySelector(".q-next").addEventListener("click", next);
-    }
-
-    function saveContact() {
-      const form = quiz.querySelector("#q-form");
-      if (form) answers.contact = Object.fromEntries(new FormData(form));
-      return form;
-    }
-
-    function next() {
-      const form = saveContact();
-      if (form && !form.reportValidity()) return;
-      if (step === QUESTIONS.length - 1) return submit();
-      step++;
-      render();
-      quiz.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    async function submit() {
-      const btn = quiz.querySelector(".q-next");
-      btn.disabled = true;
-      btn.textContent = "Submitting…";
-      const c = answers.contact || {};
-      const dial = (COUNTRIES.find(([, , iso]) => iso === c.country) || COUNTRIES[0])[1];
-      const payload = { ...answers, contact: { ...c, phone_full: `${dial} ${c.phone || ""}`.trim() } };
-      try {
-        if (FORM_ENDPOINT) {
-          await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
-        } else {
-          console.log("Form submission (no FORM_ENDPOINT set):", payload);
-        }
-      } catch (err) {
-        console.error(err);
+      // Monotone cubic interpolation (Fritsch–Carlson) so the curve never dips between points
+      const xs = POINTS.map((p) => p[0]), ys = POINTS.map((p) => p[1]);
+      const d = xs.slice(1).map((x, i) => (ys[i + 1] - ys[i]) / (x - xs[i]));
+      const m = xs.map((_, i) => (i === 0 ? d[0] : i === xs.length - 1 ? d[d.length - 1] : d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2));
+      function viewsAt(day) {
+        let i = Math.min(xs.length - 2, xs.findIndex((x, k) => day <= xs[k + 1]));
+        if (i < 0) i = xs.length - 2;
+        const h = xs[i + 1] - xs[i], t = (day - xs[i]) / h;
+        const t2 = t * t, t3 = t2 * t;
+        return (2 * t3 - 3 * t2 + 1) * ys[i] + (t3 - 2 * t2 + t) * h * m[i] + (-2 * t3 + 3 * t2) * ys[i + 1] + (t3 - t2) * h * m[i + 1];
       }
-      quiz.innerHTML = `
-        <div class="q-progress"><div class="q-progress-fill" style="width:100%">100%</div></div>
-        <div class="q-done">
-          <span class="q-ico">${icon("", 26).replace("</svg>", '<path d="M20 6 9 17l-5-5" stroke-width="3"/></svg>')}</span>
-          <h3 class="q-title">You're in!</h3>
-          <p class="q-sub">We've got your answers and will be in touch shortly.</p>
-        </div>`;
-    }
+      const fmt = (v) => (v >= 10 ? Math.round(v) : v.toFixed(1)) + "M";
+      const stage = (day) =>
+        day < 30 ? "Building toward monetization" : day < 60 ? "Monetized and earning" : day < 90 ? "Past $5K / month" : "$10–15K / month";
 
-    render();
+      const el = (tag, attrs, parent) => {
+        const n = document.createElementNS(NS, tag);
+        for (const k in attrs) n.setAttribute(k, attrs[k]);
+        parent && parent.appendChild(n);
+        return n;
+      };
 
-    mountProofCarousel(PROOF);
+      let drawn = false;
+      function render() {
+        const W = svg.parentElement.clientWidth;
+        const small = W < 560;
+        const H = small ? 300 : 400;
+        const pad = { l: small ? 40 : 52, r: small ? 16 : 28, t: 24, b: 40 };
+        const X = (day) => pad.l + (day / 90) * (W - pad.l - pad.r);
+        const Y = (v) => pad.t + (1 - v / Y_MAX) * (H - pad.t - pad.b);
+        svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+        svg.innerHTML = "";
+
+        const defs = el("defs", {}, svg);
+        const grad = el("linearGradient", { id: "growth-fill", x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+        el("stop", { offset: "0%", "stop-color": "#1a5cff", "stop-opacity": 0.45 }, grad);
+        el("stop", { offset: "100%", "stop-color": "#1a5cff", "stop-opacity": 0 }, grad);
+
+        // grid + axes
+        Y_TICKS.forEach((v) => {
+          el("line", { class: v === 0 ? "base" : "grid", x1: pad.l, x2: W - pad.r, y1: Y(v), y2: Y(v) }, svg);
+          el("text", { class: "tick", x: pad.l - 10, y: Y(v) + 4, "text-anchor": "end" }, svg).textContent = v === 0 ? "0" : v + "M";
+        });
+        [0, 30, 60, 90].forEach((day) => {
+          el("text", { class: "tick", x: X(day), y: H - pad.b + 22, "text-anchor": day === 0 ? "start" : day === 90 ? "end" : "middle" }, svg).textContent = "Day " + day;
+        });
+        if (!small) el("text", { class: "axis-title", x: pad.l, y: pad.t - 10 }, svg).textContent = "Views";
+
+        // curve + area
+        let line = "";
+        for (let day = 0; day <= 90; day += 1) line += (day ? "L" : "M") + X(day).toFixed(1) + "," + Y(viewsAt(day)).toFixed(1);
+        const area = el("path", { d: `${line}L${X(90)},${Y(0)}L${X(0)},${Y(0)}Z`, fill: "url(#growth-fill)" }, svg);
+        const path = el("path", { class: "line", d: line }, svg);
+
+        // milestones: drop line, pulsing ring, dot, money chip
+        const marks = el("g", {}, svg);
+        MILESTONES.forEach((ms, i) => {
+          const cx = X(ms.day), cy = Y(ms.views);
+          el("line", { class: "drop", x1: cx, x2: cx, y1: cy, y2: Y(0) }, marks);
+          el("circle", { class: "ring", cx, cy, r: 7, style: `animation-delay:${i * 0.4}s` }, marks);
+          el("circle", { class: "dot", cx, cy, r: 7 }, marks);
+
+          const chip = el("g", { class: "chip" }, marks);
+          const k = el("text", { class: "k" }, chip);
+          k.textContent = "Day " + ms.day;
+          const v = el("text", { class: "v" }, chip);
+          v.textContent = ms.label;
+          const w = Math.max(k.getComputedTextLength(), v.getComputedTextLength()) + 24;
+          const h = 48;
+          // chips sit up-and-left of each dot; the last one tucks left so it stays inside the card
+          let bx = i === MILESTONES.length - 1 ? cx - w - 16 : cx - w / 2;
+          let by = cy - h - 18;
+          if (i === MILESTONES.length - 1) by = cy - h / 2 + 4;
+          bx = Math.max(pad.l, Math.min(bx, W - pad.r - w));
+          by = Math.max(0, by);
+          el("rect", { x: bx, y: by, width: w, height: h, rx: 10 }, chip).parentNode.insertBefore(chip.lastChild, chip.firstChild);
+          k.setAttribute("x", bx + 12); k.setAttribute("y", by + 19);
+          v.setAttribute("x", bx + 12); v.setAttribute("y", by + 38);
+        });
+
+        // hover layer: crosshair + focus dot + tooltip
+        const cross = el("line", { class: "cross", y1: pad.t, y2: Y(0), visibility: "hidden" }, svg);
+        const focus = el("circle", { class: "focus", r: 5, visibility: "hidden" }, svg);
+        const hit = el("rect", { x: pad.l, y: 0, width: W - pad.l - pad.r, height: H, fill: "transparent" }, svg);
+        const move = (e) => {
+          const r = svg.getBoundingClientRect();
+          const px = ((e.clientX - r.left) / r.width) * W;
+          const day = Math.max(0, Math.min(90, Math.round(((px - pad.l) / (W - pad.l - pad.r)) * 90)));
+          const v = viewsAt(day), cx = X(day), cy = Y(v);
+          cross.setAttribute("x1", cx); cross.setAttribute("x2", cx);
+          focus.setAttribute("cx", cx); focus.setAttribute("cy", cy);
+          cross.setAttribute("visibility", "visible"); focus.setAttribute("visibility", "visible");
+          tip.innerHTML = `<b>Day ${day}</b> · ${fmt(v)} views<br>${stage(day)}`;
+          tip.hidden = false;
+          const tw = tip.offsetWidth / 2;
+          tip.style.left = Math.max(tw, Math.min((cx / W) * r.width, r.width - tw)) + "px";
+          tip.style.top = (cy / H) * r.height + "px";
+        };
+        const leave = () => { cross.setAttribute("visibility", "hidden"); focus.setAttribute("visibility", "hidden"); tip.hidden = true; };
+        hit.addEventListener("pointermove", move);
+        hit.addEventListener("pointerdown", move);
+        hit.addEventListener("pointerleave", leave);
+
+        // draw-in animation the first time the chart scrolls into view
+        if (!drawn && !reduceMotion) {
+          const len = path.getTotalLength();
+          path.style.strokeDasharray = len;
+          path.style.strokeDashoffset = len;
+          area.style.opacity = 0;
+          marks.style.opacity = 0;
+          const io = new IntersectionObserver((entries) => {
+            if (!entries[0].isIntersecting) return;
+            io.disconnect();
+            drawn = true;
+            path.style.transition = "stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1)";
+            area.style.transition = "opacity 1.2s ease .6s";
+            marks.style.transition = "opacity .6s ease 1.4s";
+            path.style.strokeDashoffset = 0;
+            area.style.opacity = 1;
+            marks.style.opacity = 1;
+          }, { threshold: 0.35 });
+          io.observe(svg);
+        }
+      }
+
+      render();
+      let rt;
+      window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { drawn = true; render(); }, 150); });
+    })();
+
+    mountProofCarousel(proofList("assets/proof/"));
 
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
