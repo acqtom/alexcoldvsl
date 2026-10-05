@@ -10,9 +10,15 @@
     var(--card);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
 }
-.growth-figure { position: relative; margin: 0; overflow-x: auto; scrollbar-width: none; }
-.growth-figure::-webkit-scrollbar { display: none; }
-#growth-chart { display: block; height: auto; overflow: visible; }
+.growth-figure { position: relative; margin: 0; }
+#growth-chart { display: block; width: 100%; height: auto; overflow: visible; }
+/* Phone: the chart is drawn large and scaled down, so text sizes here are before scaling */
+#growth-chart.is-fit .tick { font-size: 24px; }
+#growth-chart.is-fit .axis-title { font-size: 18px; }
+#growth-chart.is-fit .chip .k { font-size: 17px; }
+#growth-chart.is-fit .chip .v { font-size: 23px; }
+#growth-chart.is-fit .line { stroke-width: 5; }
+#growth-chart.is-fit .dot { stroke-width: 6; }
 #growth-chart .grid { stroke: rgba(255, 255, 255, 0.07); stroke-width: 1; }
 #growth-chart .base { stroke: rgba(255, 255, 255, 0.18); stroke-width: 1; }
 #growth-chart .tick { fill: var(--muted); font: 500 12px var(--sans); }

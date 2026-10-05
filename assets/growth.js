@@ -1,5 +1,5 @@
 /* 180-day growth chart – views over time, money as milestones. Shared by the main page and the
-   confirmation pages; needs the #growth-chart / #growth-tip / #growth-swipe markup. */
+   confirmation pages; needs the #growth-chart / #growth-tip markup. */
 (function growthChart() {
   const svg = document.getElementById("growth-chart");
   const tip = document.getElementById("growth-tip");
@@ -46,12 +46,14 @@
   let drawn = false;
   function render() {
     // Narrow screens get a full-size chart that scrolls sideways, so every label stays readable
-    const W = Math.max(svg.parentElement.clientWidth, 760);
-    svg.style.width = W + "px";
-    document.getElementById("growth-swipe").hidden = W <= svg.parentElement.clientWidth;
+    // Narrow screens draw the chart at desktop proportions (taller, with larger text) and scale it
+    // down to fit, so it looks like the desktop chart with every label readable and nothing cut off.
+    const fit = svg.parentElement.clientWidth < 600;
+    const W = fit ? 760 : svg.parentElement.clientWidth;
+    const H = fit ? 640 : 400;
+    svg.classList.toggle("is-fit", fit);
     const small = false;
-    const H = small ? 300 : 400;
-    const pad = { l: small ? 40 : 52, r: small ? 16 : 28, t: 24, b: 40 };
+    const pad = fit ? { l: 84, r: 30, t: 24, b: 64 } : { l: 52, r: 28, t: 24, b: 40 };
     const X = (day) => pad.l + (day / DAYS) * (W - pad.l - pad.r);
     const Y = (v) => pad.t + (1 - v / Y_MAX) * (H - pad.t - pad.b);
     svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
@@ -65,10 +67,10 @@
     // grid + axes
     Y_TICKS.forEach((v) => {
       el("line", { class: v === 0 ? "base" : "grid", x1: pad.l, x2: W - pad.r, y1: Y(v), y2: Y(v) }, svg);
-      el("text", { class: "tick", x: pad.l - 10, y: Y(v) + 4, "text-anchor": "end" }, svg).textContent = v === 0 ? "0" : v + "M";
+      el("text", { class: "tick", x: pad.l - (fit ? 14 : 10), y: Y(v) + (fit ? 8 : 4), "text-anchor": "end" }, svg).textContent = v === 0 ? "0" : v + "M";
     });
     (small ? [0, 60, 120, 180] : [0, 30, 60, 90, 120, 150, 180]).forEach((day) => {
-      el("text", { class: "tick", x: X(day), y: H - pad.b + 22, "text-anchor": day === 0 ? "start" : day === DAYS ? "end" : "middle" }, svg).textContent = (small ? "" : "Day ") + day;
+      el("text", { class: "tick", x: X(day), y: H - pad.b + (fit ? 40 : 22), "text-anchor": day === 0 ? "start" : day === DAYS ? "end" : "middle" }, svg).textContent = fit && day ? String(day) : "Day " + day;
     });
     if (!small) el("text", { class: "axis-title", x: pad.l, y: pad.t - 10 }, svg).textContent = "Views";
 
@@ -91,16 +93,20 @@
       k.textContent = "Day " + ms.day;
       const v = el("text", { class: "v" }, chip);
       v.textContent = ms.label;
-      const w = Math.max(k.getComputedTextLength(), v.getComputedTextLength()) + 24;
-      const h = 48;
+      const w = Math.max(k.getComputedTextLength(), v.getComputedTextLength()) + (fit ? 32 : 24);
+      const h = fit ? 66 : 48;
       // chips sit above each dot; the first leans left so it clears its neighbour
-      let bx = i === 0 ? cx - w + 16 : cx - w / 2;
+      // (on phones the second leans right too, clear of the first)
+      let bx = i === 0 ? cx - w + 16 : fit && i === 1 ? cx - 16 : cx - w / 2;
       let by = cy - h - 18;
+      // phones: lift the first label above the second so they don't overlap
+      if (fit && i === 0) by = Y(MILESTONES[1].views) - 2 * h - 28;
       bx = Math.max(pad.l, Math.min(bx, W - pad.r - w));
       by = Math.max(0, by);
       el("rect", { x: bx, y: by, width: w, height: h, rx: 10 }, chip).parentNode.insertBefore(chip.lastChild, chip.firstChild);
-      k.setAttribute("x", bx + 12); k.setAttribute("y", by + 19);
-      v.setAttribute("x", bx + 12); v.setAttribute("y", by + 38);
+      const ip = fit ? 16 : 12;
+      k.setAttribute("x", bx + ip); k.setAttribute("y", by + (fit ? 26 : 19));
+      v.setAttribute("x", bx + ip); v.setAttribute("y", by + (fit ? 53 : 38));
     });
 
     // hover layer: crosshair + focus dot + tooltip

@@ -463,8 +463,49 @@
     @media (max-width: 520px) {
       .topbar-inner { flex-direction: column; justify-content: center; gap: 4px; padding-top: 10px; padding-bottom: 10px; }
     }
-    @media (max-width: 420px) {
-      .checks { flex-direction: column; align-items: center; }
+    /* Phone sizing & spacing */
+    @media (max-width: 600px) {
+      .wrap { padding: 0 24px; }
+      section { padding: 52px 0; }
+      .hero { padding-top: 32px; padding-bottom: 52px; }
+      .hero .pill { font-size: 13px; padding: 7px 12px; }
+      .hero h1 { font-size: 24px; line-height: 1.22; margin-top: 22px; }
+      .checks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: start;
+        gap: 12px 14px;
+        margin-top: 28px;
+      }
+      .checks li { font-size: 14px; gap: 8px; line-height: 1.3; align-items: flex-start; }
+      .checks svg { width: 15px; height: 15px; margin-top: 1px; }
+      .vsl { margin-top: 32px; border-radius: 14px; }
+      .cta-row { margin-top: 36px; }
+      .btn { font-size: 16px; padding: 16px 18px; border-radius: 12px; }
+      .section-title { font-size: 28px; line-height: 1.18; }
+      .section-sub { font-size: 15px; margin-top: 14px; }
+      .proof { margin-top: 64px; }
+      .proof-title { font-size: 19px; }
+      .growth-card, .vs-grid, .types-grid, .pain-grid, .coach-card, .reviews-grid { margin-top: 32px; }
+      .vs-grid { gap: 40px; }
+      .vs-card, .types .panel, .pains .pain, .coach-card { padding: 24px 20px; }
+      .vs-head { gap: 12px; padding-bottom: 18px; margin-bottom: 18px; }
+      .vs-icon { width: 40px; height: 40px; }
+      .vs-head h3, .types .panel h3 { font-size: 20px; }
+      .vs .eyebrow { font-size: 11px; }
+      .vs-mid { width: 52px; height: 52px; font-size: 16px; }
+      .types .panel p, .pains .pain p, .coach p { font-size: 15px; line-height: 1.6; }
+      .types .list { padding-top: 24px; gap: 10px; }
+      .vs .list { gap: 10px; }
+      .vs .list li, .types .list li { font-size: 15px; padding: 10px 14px; gap: 12px; }
+      .pains .num { width: 38px; height: 38px; font-size: 16px; }
+      .pains .pain h3 { font-size: 20px; margin-top: 18px; }
+      .pains .pain p { margin-top: 12px; }
+      .coach-photo { width: 88px; height: 88px; }
+      .review { padding: 20px; }
+      .final-card { padding: 40px 20px; border-radius: 20px; }
+      .final-card h2 { font-size: 30px; }
+      .final-card p { font-size: 17px; }
     }
   </style>
   <link rel="stylesheet" href="assets/proof.css" />
@@ -545,7 +586,6 @@
           </figcaption>
         </figure>
 
-        <p class="growth-swipe" id="growth-swipe" hidden>Swipe to see all 180 days →</p>
         <p class="growth-note">Illustrative path based on what our students have done. Results vary with your topic, consistency and effort.</p>
       </div>
 
