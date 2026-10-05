@@ -399,6 +399,43 @@
     .vs .ico.x { background: #3a4155; }
     .vs .ico.ok { background: var(--blue); }
 
+    /* ---------- Two types ---------- */
+    .types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; margin: 56px auto 0; }
+    .types .panel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 38px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+    .types .panel::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.8), transparent);
+    }
+    .types .panel h3 { font-size: 28px; }
+    .types .panel p { margin-top: 16px; color: var(--muted); font-size: 17px; line-height: 1.7; }
+    .types .list { list-style: none; display: grid; gap: 12px; margin-top: auto; padding-top: 32px; }
+    .types .list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: rgba(15, 18, 28, 0.6);
+      border: 1px solid var(--line-soft);
+      color: var(--body);
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .types .ico { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: #fff; }
+
     /* ---------- Head coach ---------- */
     .coach-card {
       max-width: 840px;
@@ -494,6 +531,8 @@
       .final-card { padding: 48px 20px; }
       .vs-grid { grid-template-columns: 1fr; gap: 48px; }
       .vs-card { padding: 28px 22px; }
+      .types-grid { grid-template-columns: 1fr; }
+      .types .panel { padding: 28px 22px; }
       .growth-card { padding: 18px 14px 16px; }
       .coach-card { padding: 28px 22px; }
       .coach-top { grid-template-columns: 1fr; gap: 20px; }
@@ -569,6 +608,31 @@
         <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ================= GROWTH CHART ================= -->
+  <section class="growth">
+    <div class="wrap">
+      <h2 class="section-title">What The Next <span class="gold">180 Days</span> Can Look Like</h2>
+      <p class="section-sub">Views compound. Once your channel is monetized, every extra million views turns into more money each month.</p>
+
+      <div class="growth-card">
+        <figure class="growth-figure">
+          <svg id="growth-chart" role="img" aria-labelledby="growth-desc"></svg>
+          <div class="growth-tip" id="growth-tip" hidden></div>
+          <figcaption id="growth-desc" class="sr-only">
+            Line chart of channel views over 180 days. Day 30: 2 million views, escaped video jail. Day 60: 10 million views, monetized. Day 90: 25 million views, $5K per month. Day 120: 45 million views, $10K per month. Day 150: 70 million views, second channel. Day 180: 100 million views, $15–20K per month.
+          </figcaption>
+        </figure>
+
+        <p class="growth-swipe" id="growth-swipe" hidden>Swipe to see all 180 days →</p>
+        <p class="growth-note">Illustrative path based on what our students have done. Results vary with your topic, consistency and effort.</p>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
     </div>
   </section>
 
@@ -648,31 +712,6 @@
     </div>
   </section>
 
-  <!-- ================= GROWTH CHART ================= -->
-  <section class="growth">
-    <div class="wrap">
-      <h2 class="section-title">What The Next <span class="gold">180 Days</span> Can Look Like</h2>
-      <p class="section-sub">Views compound. Once your channel is monetized, every extra million views turns into more money each month.</p>
-
-      <div class="growth-card">
-        <figure class="growth-figure">
-          <svg id="growth-chart" role="img" aria-labelledby="growth-desc"></svg>
-          <div class="growth-tip" id="growth-tip" hidden></div>
-          <figcaption id="growth-desc" class="sr-only">
-            Line chart of channel views over 180 days. Day 30: 2 million views, escaped video jail. Day 60: 10 million views, monetized. Day 90: 25 million views, $5K per month. Day 120: 45 million views, $10K per month. Day 150: 70 million views, second channel. Day 180: 100 million views, $15–20K per month.
-          </figcaption>
-        </figure>
-
-        <p class="growth-swipe" id="growth-swipe" hidden>Swipe to see all 180 days →</p>
-        <p class="growth-note">Illustrative path based on what our students have done. Results vary with your topic, consistency and effort.</p>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= WITH vs WITHOUT ================= -->
   <section class="vs">
     <div class="wrap">
@@ -712,6 +751,39 @@
             <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>YouTube Partner Program acceptance</li>
             <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Weekly content strategy</li>
             <li><span class="ico ok"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>1-on-1 coaching the whole way</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TWO TYPES ================= -->
+  <section class="types">
+    <div class="wrap">
+      <h2 class="section-title">I Work With <span class="gold">2 Types</span> Of<br />Faceless Creators</h2>
+      <div class="types-grid">
+        <div class="panel">
+          <h3>Starting From Scratch</h3>
+          <p>You've watched faceless channels pull millions of views and you've decided you want one. But you don't know which niche to pick, what the videos are even supposed to look like, or how any of it actually gets monetized. Every tutorial says something different, so you've never actually started. You've got the drive and the hour or two a night to do it. You just don't have the path yet.</p>
+          <ul class="list">
+            <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Ready to start your first channel</li>
+            <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Willing to edit for 1 hr/day</li>
+            <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Need to know exactly where to begin</li>
+            <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Want the full step-by-step process</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Already Have A Channel</h3>
+          <p>You've already got a faceless channel, and it's stuck. You're posting, the videos are doing a few hundred views and then nothing, and you can't work out why. Maybe you've changed the niche. Maybe you've changed the editing. Maybe you've been at it for months and still aren't monetized. You don't need convincing this works, you've seen it work for everyone else. You just need someone to tell you what you're missing.</p>
+          <ul class="list">
+            <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Channel already up and running</li>
+            <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Stuck in view jail or not monetized</li>
+            <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Need to know why it's not working</li>
+            <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Want someone experienced fixing your channel</li>
           </ul>
         </div>
       </div>
