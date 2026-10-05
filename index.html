@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>6figurechannel</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='1' width='26' height='30' rx='7' fill='%231a5cff'/%3E%3Cpath d='M12 10.5v11l9-5.5z' fill='%23fff'/%3E%3C/svg%3E" />
+  <meta name="description" content="How busy professionals are building $10–15K/month faceless YouTube income in 1 hour a day from home, even with zero experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Figtree:ital,wght@0,700;0,800;1,800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #171c2c;
+      --card: rgba(28, 33, 48, 0.88);
+      --card-2: #1f2536;
+      --line: rgba(255, 255, 255, 0.14);
+      --line-soft: rgba(255, 255, 255, 0.08);
+      --text: #ffffff;
+      --muted: #a3a9ba;
+      --body: #d7dae3;
+      --accent: #5b8cff;
+      --blue-tint: rgba(26, 92, 255, 0.14);
+      --blue-line: rgba(91, 140, 255, 0.45);
+      --blue: #1a5cff;
+      --blue-2: #3b74ff;
+      --display: "Figtree", system-ui, sans-serif;
+      --sans: "Inter", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(180deg, #161b2a 0%, #1c2235 50%, #232840 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Starfield + soft violet glow, fixed behind everything */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(ellipse 35% 55% at 95% 65%, rgba(160, 140, 200, 0.28), transparent 70%),
+        radial-gradient(ellipse 30% 40% at 0% 100%, rgba(90, 110, 200, 0.18), transparent 70%),
+        radial-gradient(1.2px 1.2px at 40px 60px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(1px 1px at 190px 140px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1.4px 1.4px at 120px 260px, rgba(255,255,255,0.75), transparent),
+        radial-gradient(1px 1px at 300px 30px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1.6px 1.6px at 250px 330px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 70px 380px, rgba(255,255,255,0.45), transparent);
+      background-size: 100% 100%, 100% 100%, 347px 347px, 347px 347px, 419px 419px, 419px 419px, 523px 523px, 523px 523px;
+    }
+    body > * { position: relative; z-index: 0; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 16px; }
+    .narrow { max-width: 820px; margin-left: auto; margin-right: auto; }
+    section { padding: 80px 0; position: relative; }
+
+    /* Blue accent text */
+    .gold { color: var(--accent); }
+    /* Blue marker highlight */
+    .hl {
+      background: var(--blue);
+      color: #fff;
+      padding: 0 6px;
+      border-radius: 3px;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--display);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .section-title {
+      font-size: clamp(32px, 4.6vw, 52px);
+      text-align: center;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 20px auto 0;
+      max-width: 760px;
+    }
+
+    /* ---------- Top banner ---------- */
+    .topbar { background: #fff; color: #14161f; }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 80px;
+    }
+    .logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--sans); font-size: 18px; font-weight: 500; letter-spacing: -0.02em; }
+    .logo b { font-weight: 700; }
+    .logo-mark { flex: none; display: grid; place-items: center; width: 22px; height: 26px; border-radius: 6px; background: var(--blue); }
+    .rating { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; }
+    .stars { color: var(--blue); letter-spacing: 1px; font-size: 16px; }
+
+    /* ---------- Buttons ---------- */
+    .cta-row { display: flex; justify-content: center; margin-top: 56px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 36px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 10px 30px rgba(26, 92, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      text-align: center;
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--blue-2); box-shadow: 0 14px 40px rgba(26, 92, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+    .btn .arrow { transition: transform 0.15s ease; }
+    .btn:hover .arrow { transform: translateX(3px); }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 4px;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--display);
+      font-weight: 800;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero { padding-top: 48px; padding-bottom: 72px; text-align: center; }
+    .hero .pill { font-size: 17px; }
+    .hero h1 {
+      font-size: clamp(28px, 4.2vw, 44px);
+      margin: 26px auto 0;
+      max-width: 1100px;
+    }
+    .checks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px 40px;
+      max-width: 860px;
+      margin: 40px auto 0;
+      list-style: none;
+      text-align: left;
+    }
+    .checks li { display: flex; align-items: center; gap: 12px; font-size: 18px; color: var(--body); }
+    .checks svg { flex: none; color: var(--accent); }
+
+    .vsl {
+      position: relative;
+      max-width: 790px;
+      margin: 44px auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+      row-gap: 12px;
+    }
+    .stat {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 0 14px;
+      border-left: 1px solid var(--line);
+    }
+    .stat:first-child { border-left: 0; }
+    .stat b { font-family: var(--display); font-weight: 800; font-size: 19px; color: #fff; }
+    .stat span { font-size: 13px; color: var(--muted); }
+
+
+    /* ---------- Quiz form ---------- */
+    .apply-head { max-width: 620px; margin: 64px auto 0; text-align: center; scroll-margin-top: 24px; }
+    .apply-head h2 { font-size: clamp(28px, 3.6vw, 38px); }
+    .apply-head p { margin-top: 12px; color: var(--muted); font-size: 17px; line-height: 1.6; }
+    .quiz {
+      max-width: 620px;
+      margin: 28px auto 0;
+      padding: 28px 28px 24px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(22, 26, 39, 0.82);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      text-align: left;
+      scroll-margin-top: 24px;
+    }
+    .q-progress {
+      position: relative;
+      height: 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(10, 12, 20, 0.6);
+      overflow: hidden;
+    }
+    .q-progress-fill {
+      height: 100%;
+      min-width: 46px;
+      padding-right: 10px;
+      border-radius: 999px;
+      background: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      transition: width 0.4s ease;
+    }
+    .q-title { margin-top: 28px; font-size: clamp(22px, 3vw, 28px); line-height: 1.25; }
+    .q-sub { margin-top: 8px; color: var(--muted); font-size: 15px; }
+    .q-options { display: grid; gap: 12px; margin-top: 24px; }
+    .q-opt {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 18px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(40, 46, 64, 0.6);
+      color: var(--body);
+      font: inherit;
+      font-size: 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .q-opt:hover { border-color: rgba(255, 255, 255, 0.3); }
+    .q-opt.sel { color: #fff; }
+    .q-ico {
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      color: var(--accent);
+    }
+    .q-radio { flex: none; margin-left: auto; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid #c9ccd6; }
+    .q-check { flex: none; margin-left: auto; width: 22px; height: 22px; border-radius: 5px; border: 1.5px solid #c9ccd6; }
+    .q-opt.sel { border-color: #8fb0ff; background: rgba(91, 140, 255, 0.12); }
+    .q-opt.sel .q-radio, .q-opt.sel .q-check { border-color: #8fb0ff; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314161f' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 13px no-repeat, #8fb0ff; }
+    .q-fields { display: grid; gap: 12px; margin-top: 24px; }
+    .q-fields input {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(40, 46, 64, 0.6);
+      color: #fff;
+      font: inherit;
+      font-size: 16px;
+      outline: none;
+    }
+    .q-fields label { display: grid; gap: 8px; font-size: 15px; font-weight: 500; color: var(--body); }
+    .q-fields .req { color: var(--muted); }
+    .q-phone { display: flex; gap: 8px; }
+    .q-phone select {
+      flex: none;
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(40, 46, 64, 0.6);
+      color: #fff;
+      font: inherit;
+      font-size: 15px;
+      outline: none;
+      cursor: pointer;
+    }
+    .q-phone select:focus { border-color: var(--blue); }
+    .q-phone option { background: #1d2335; }
+    .q-fields input:user-invalid { border-color: #8fb0ff; }
+    .q-fields input::placeholder { color: var(--muted); }
+    .q-fields input:focus { border-color: var(--blue); }
+    .q-next {
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 17px;
+      cursor: not-allowed;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .q-next:enabled { background: var(--blue); border-color: var(--blue); color: #fff; cursor: pointer; box-shadow: 0 10px 30px rgba(26, 92, 255, 0.35); }
+    .q-next:enabled:hover { background: var(--blue-2); }
+    .q-back { display: block; margin: 14px auto 0; background: none; border: 0; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; }
+    .q-back:hover { color: #fff; }
+    .q-proof { margin-top: 22px; padding: 18px; border-radius: 16px; border: 1px solid var(--line); background: rgba(40, 46, 64, 0.45); }
+    .q-proof-head { display: flex; align-items: center; gap: 14px; }
+    .q-proof-head b { display: block; font-size: 16px; }
+    .q-proof-head span { font-size: 14px; color: var(--muted); }
+    .q-avatar { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--blue); font-family: var(--display); font-weight: 800; font-size: 18px; }
+    .q-proof-img { position: relative; margin-top: 16px; aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; background: #0f121c; border: 1px solid var(--line-soft); }
+    .q-proof-img img { width: 100%; height: 100%; object-fit: contain; }
+    .q-proof-img .ph { position: absolute; inset: 0; display: grid; place-items: center; color: #6b7184; font-size: 13px; }
+    .q-proof-img img + .ph { display: none; }
+    .q-proof-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
+    .q-dots { display: flex; gap: 6px; }
+    .q-dots i { width: 6px; height: 6px; border-radius: 3px; background: #5a6075; transition: width 0.2s ease; }
+    .q-dots i.on { width: 18px; background: #8fb0ff; }
+    .q-arrows { display: flex; gap: 10px; }
+    .q-arrow { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+    .q-arrow:disabled { opacity: 0.35; cursor: default; }
+    /* ---------- Results carousel (cards/nav in assets/proof.css) ---------- */
+    .proof { max-width: 620px; margin: 256px auto 0; text-align: left; }
+    .proof-title { font-size: clamp(20px, 2.6vw, 25px); font-weight: 700; color: var(--muted); line-height: 1.5; }
+    .proof-title b { color: #fff; }
+    .proof-track { margin-top: 24px; }
+    .q-proof-img .ov {
+      position: absolute;
+      left: 12%;
+      bottom: 10%;
+      width: 72%;
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transform: rotate(-2deg);
+    }
+    .q-done { text-align: center; padding: 40px 0 8px; }
+    .q-done .q-ico { width: 56px; height: 56px; margin: 0 auto; border-radius: 50%; background: var(--blue); border: 0; color: #fff; }
+
+    /* ---------- How it works (light section) ---------- */
+    .how { padding: 72px 0 80px; }
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+    .how-art { height: 180px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .how-step {
+      margin-top: 20px;
+      padding: 8px;
+      border-radius: 8px;
+      text-align: center;
+      color: #fff;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 16px;
+    }
+    .how-step.r { background: #dc1717; }
+    .how-step.g { background: #17993f; }
+    .how h3 { margin-top: 20px; font-size: 19px; letter-spacing: -0.01em; }
+    .how p { margin-top: 8px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+    .phone {
+      position: relative;
+      width: 102px;
+      height: 176px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 3px solid #d9d9dd;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .phone { color: #14161f; }
+    .phone.green { border-color: #1a7a36; }
+    .phone.soft { border-color: #b9dcc4; width: 80px; height: 136px; padding: 9px; border-width: 2px; }
+    .phone .screen { flex: none; height: 76px; border-radius: 8px; display: grid; place-items: center; background: #ececef; }
+    .phone.soft .screen { height: 48px; }
+    .screen.pink { background: #fde4e4; }
+    .screen.mint { background: #e1f3e6; }
+    .tri { width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 14px solid #c3c3c8; }
+    .tri.red { border-left-color: #dc1717; }
+    .tri.green { border-left-color: #1a7a36; }
+    .tri.sm { border-top-width: 6px; border-bottom-width: 6px; border-left-width: 9px; }
+    .bar { height: 7px; border-radius: 4px; background: #e6e6ea; }
+    .bar.fill { background: linear-gradient(90deg, #dc1717 78%, #e6e6ea 78%); }
+    .bar.fill.more { background: linear-gradient(90deg, #dc1717 90%, #e6e6ea 90%); }
+    .mini { font-size: 9px; font-weight: 800; font-family: var(--display); margin-bottom: -4px; }
+    .badge-1k { position: absolute; right: 10px; bottom: 12px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: #fde4e4; color: #dc1717; font-size: 9px; font-weight: 800; }
+    .payout { flex: 1; border-radius: 8px; background: #e1f3e6; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #1a7a36; font-family: var(--display); font-weight: 800; font-size: 11px; line-height: 1.2; }
+    .payout .ck { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #1a7a36; color: #fff; margin-bottom: 4px; }
+    .money { text-align: center; color: #1a7a36; font-family: var(--display); font-weight: 800; font-size: 18px; }
+    .phone.soft .money { font-size: 11px; color: #4a9a62; }
+    .bars { flex: 1; display: flex; align-items: flex-end; justify-content: space-around; }
+    .bars i { display: block; width: 6px; border-radius: 3px; background: #1a7a36; }
+    .phone.soft .bars i { width: 4px; background: #8cc49c; }
+
+    /* ---------- Head coach ---------- */
+    .coach-card {
+      max-width: 840px;
+      margin: 48px auto 0;
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+    .coach-top { display: grid; grid-template-columns: 116px 1fr; gap: 28px; }
+    .coach-photo {
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: linear-gradient(180deg, #2a68ff, #0f45d6);
+      border: 3px solid rgba(91, 140, 255, 0.45);
+    }
+    .coach-name { font-family: var(--display); font-weight: 800; font-size: 20px; color: var(--accent); }
+    .coach-role { margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--muted); }
+    .coach p { margin-top: 14px; color: var(--body); font-size: 16px; line-height: 1.75; }
+    .coach-role + p { margin-top: 18px; }
+    .coach-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line-soft);
+      text-align: center;
+    }
+    .coach-stats b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(26px, 3vw, 32px); color: #fff; letter-spacing: -0.02em; }
+    .coach-stats span { display: block; margin-top: 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+    /* ---------- Testimonials ---------- */
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; align-items: start; }
+    .reviews-col { display: grid; gap: 20px; }
+    .review { padding: 24px; border-radius: 16px; border: 1px solid var(--line); background: var(--card); }
+    .review-stars { color: var(--blue); font-size: 17px; letter-spacing: 2px; }
+    .review blockquote { margin-top: 12px; color: var(--body); font-size: 15px; line-height: 1.6; }
+    .review figcaption { margin-top: 16px; font-weight: 700; font-size: 15px; color: #fff; }
+    .review-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--blue-tint);
+      border: 1px solid var(--blue-line);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ---------- Final CTA ---------- */
+    .final-card {
+      padding: 76px 32px 80px;
+      border-radius: 24px;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(135deg, #2a68ff 0%, #1a5cff 50%, #0f45d6 100%);
+      box-shadow: 0 30px 120px rgba(26, 92, 255, 0.3);
+    }
+    .final-card h2 { font-size: clamp(36px, 5vw, 60px); }
+    .final-card p { margin-top: 14px; font-size: 20px; font-weight: 500; color: rgba(255, 255, 255, 0.85); }
+    .final-card .btn { margin-top: 36px; background: #fff; color: var(--blue); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); }
+    .final-card .btn:hover { background: #f1f4ff; }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--line-soft); padding: 44px 0 40px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-links { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+    .footer-links a { color: var(--muted); font-size: 15px; }
+    .footer-links a:hover { color: var(--text); }
+    .copyright { margin-top: 28px; color: #6b7184; font-size: 13px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .checks { gap: 12px 28px; }
+      .reviews-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+      .how-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
+    }
+    @media (max-width: 760px) {
+      section { padding: 56px 0; }
+      .topbar-inner { min-height: 60px; }
+      .logo { font-size: 15px; }
+      .rating { font-size: 12px; }
+      .rating .stars { font-size: 13px; }
+      .checks li { font-size: 16px; }
+      .stat { border-left: 0; }
+      .btn { width: 100%; padding: 18px 20px; }
+      .final-card { padding: 48px 20px; }
+      .coach-card { padding: 28px 22px; }
+      .coach-top { grid-template-columns: 1fr; gap: 20px; }
+      .coach-stats { grid-template-columns: 1fr 1fr; row-gap: 24px; }
+      .quiz { padding: 20px 16px 18px; border-radius: 16px; }
+      .proof { margin-top: 176px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links { align-items: flex-start; }
+    }
+    @media (max-width: 520px) {
+      .how-grid { grid-template-columns: 1fr; }
+      .topbar-inner { flex-direction: column; justify-content: center; gap: 4px; padding-top: 10px; padding-bottom: 10px; }
+    }
+    @media (max-width: 420px) {
+      .checks { flex-direction: column; align-items: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="assets/proof.css" />
+</head>
+<body>
+
+  <!-- ================= TOP BANNER ================= -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="#">
+        <span class="logo-mark"><svg width="9" height="11" viewBox="0 0 9 11" fill="#fff"><path d="M0 0l9 5.5L0 11z"/></svg></span>
+        <span><b>6-Figure</b> Channel Launchpad</span>
+      </a>
+      <div class="rating"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span>5.0 · 100+ students coached</div>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="pill">Are you feeling capped in your career and ready for the next level?</span>
+
+      <h1>
+        How Busy Professionals Are Building <span class="gold">$10–15K/Month Faceless YouTube Income</span>
+        in 1 Hour a Day From Home, Even With Zero Experience.
+      </h1>
+
+      <ul class="checks">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Monetization</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Viral editing formula</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1-1 coaching</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Editor placement</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Done-for-you channel setup</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Done-for-you niche</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Scaling full-time</li>
+      </ul>
+
+      <!-- VSL (vturb / ConverteAI player) -->
+      <div class="vsl">
+        <vturb-smartplayer id="vid-6a6a9a2d25b1229f3890948f" style="display: block; margin: 0 auto; width: 100%;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
+      </div>
+
+      <!-- Multi-step application form. Questions live in QUESTIONS in the script at the bottom. -->
+      <div class="cta-row" style="margin-top:36px">
+        <a class="btn js-cta" href="#apply">Schedule My Free Strategy Session <span class="arrow">↓</span></a>
+      </div>
+
+      <div class="apply-head" id="apply">
+        <h2>Apply to Work With <span class="gold">Alex</span></h2>
+        <p>Watched the video and ready to build income past your ceiling? Fill out the short application below. If it looks like a fit, we'll book a call to map out your YouTube payout.</p>
+      </div>
+      <div class="quiz" id="quiz" aria-live="polite"></div>
+
+      <!-- Student results carousel. Slides come from PROOF in the script; photos go in assets/proof/ -->
+      <div class="proof">
+        <h3 class="proof-title">The system <b>100+ faceless creators</b> used to build <span class="hl">income beyond their salary</span>.</h3>
+        <div class="proof-track" id="proof-track"></div>
+        <div class="proof-bar"><i id="proof-thumb"></i></div>
+        <div class="proof-nav">
+          <span class="proof-count" id="proof-count"></span>
+          <button type="button" class="proof-arrow" id="proof-prev" aria-label="Previous">‹</button>
+          <button type="button" class="proof-arrow" id="proof-next" aria-label="Next">›</button>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn js-cta" href="#apply">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="how">
+    <div class="wrap">
+      <h2 class="section-title">How Faceless YouTube Automation Works</h2>
+      <div class="how-grid">
+        <div>
+          <div class="how-art">
+            <div class="phone">
+              <div class="screen"><span class="tri"></span></div>
+              <div class="bar" style="width:70%;margin-top:6px"></div>
+              <div class="bar" style="width:40%"></div>
+              <span class="badge-1k">1k</span>
+            </div>
+          </div>
+          <div class="how-step r">1</div>
+          <h3>Post Faceless Shorts</h3>
+          <p>We give you the AI workflows, so you're not editing frame by frame.</p>
+        </div>
+        <div>
+          <div class="how-art">
+            <div class="phone">
+              <div class="screen pink"><span class="tri red"></span></div>
+              <div class="mini" style="margin-top:6px">1K SUBS</div>
+              <div class="bar fill"></div>
+              <div class="mini" style="margin-top:4px">10M VIEWS</div>
+              <div class="bar fill more"></div>
+            </div>
+          </div>
+          <div class="how-step r">2</div>
+          <h3>Get Monetized</h3>
+          <p>1,000 subscribers and 10M views within 90 days. We help you get both, fast.</p>
+        </div>
+        <div>
+          <div class="how-art">
+            <div class="phone green">
+              <div class="screen mint" style="height:64px"><span class="tri green"></span></div>
+              <div class="payout">
+                <span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                PAYOUT!<br />$$$
+              </div>
+            </div>
+          </div>
+          <div class="how-step g">3</div>
+          <h3>Collect Every Month</h3>
+          <p>YouTube runs ads on your videos and hands you a share of what they earn.</p>
+        </div>
+        <div>
+          <div class="how-art">
+            <div class="phone soft">
+              <div class="screen mint"><span class="tri green sm"></span></div>
+              <div class="money">$$$</div>
+              <div class="bars"><i style="height:50%"></i><i style="height:80%"></i><i style="height:45%"></i><i style="height:70%"></i></div>
+            </div>
+            <div class="phone green">
+              <div class="screen mint" style="height:52px"><span class="tri green"></span></div>
+              <div class="money">$$$</div>
+              <div class="bars"><i style="height:55%"></i><i style="height:90%"></i><i style="height:50%"></i><i style="height:100%"></i></div>
+            </div>
+            <div class="phone soft">
+              <div class="screen mint"><span class="tri green sm"></span></div>
+              <div class="money">$$$</div>
+              <div class="bars"><i style="height:45%"></i><i style="height:75%"></i><i style="height:55%"></i><i style="height:85%"></i></div>
+            </div>
+          </div>
+          <div class="how-step g">4</div>
+          <h3>Grow More Channels</h3>
+          <p>We show you how to outsource to vetted editors and run more than one.</p>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn js-cta" href="#apply">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HEAD COACH ================= -->
+  <section class="coach">
+    <div class="wrap">
+      <h2 class="section-title">Meet Your Head Coach:</h2>
+      <div class="coach-card">
+        <div class="coach-top">
+          <img class="coach-photo" src="assets/alex.png" alt="Alex Liubicevas" />
+          <div>
+            <div class="coach-name">Alex Liubicevas</div>
+            <div class="coach-role">Founder of the 6-Figure Channel Launchpad</div>
+            <p>Honestly, you shouldn't listen to me right away. I'm a complete stranger on the internet.</p>
+            <p>I could tell you about the 8 monetized channels doing $240k a year, or the dozens of people with 9-5s I've helped scale a channel, or the 45,000 subscribers I give free value to twice a week, or the live masterclasses where I walk hundreds of people through building these things. All from knowing literally nothing about YouTube under two years ago.</p>
+            <p>But what matters more is our students, and they're all over this page. Their own 6-figure channels, hundreds of millions of views, multiple 6-figures in YouTube revenue, taught 1-on-1 the whole way through.</p>
+            <p>We're the best in the world at teaching people to build these channels from scratch, monetize them fast and grow them, because the mentors have actually done the thing our students want to do. And the results are right here.</p>
+          </div>
+        </div>
+        <div class="coach-stats">
+          <div><b>$300K+</b><span>Generated</span></div>
+          <div><b>$240K</b><span>Per Year</span></div>
+          <div><b>$20K</b><span>Per Month</span></div>
+          <div><b>8</b><span>Monetized Channels</span></div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="reviews">
+    <div class="wrap">
+      <h2 class="section-title">What Students Say</h2>
+      <div class="reviews-grid">
+        <div class="reviews-col">
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“I was stuck in 30k view jail for months and honestly wasn't sure Shorts was ever going to work for me. In October I made $8,083 in a single month off one channel.”</blockquote>
+            <figcaption>Jax</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>$8,083 In One Month</span>
+          </figure>
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“I couldn't get anything consistent for months. Then one channel did 84 million views in a single month, with the monetization already dialled in behind it.”</blockquote>
+            <figcaption>Ethan</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>84M Views In One Month</span>
+          </figure>
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“My channel was doing almost nothing a month before. I followed the monetization steps exactly as they were given to me and pulled $1,408 in seven days. I didn't reinvent anything.”</blockquote>
+            <figcaption>Caleb</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>$1,408 In 7 Days</span>
+          </figure>
+        </div>
+        <div class="reviews-col">
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“I posted one Short and it did 21.6 million views on its own. Once the pacing and the angle matched what the platform actually wanted, it stopped being random.”</blockquote>
+            <figcaption>Lucas</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>21.6M Views On One Short</span>
+          </figure>
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“29.3 million views in 90 days, 111,000 new subscribers, and $2,653 climbing. I had 1.5 million views in the last 48 hours alone, and I'm still working my job.”</blockquote>
+            <figcaption>Jibrail</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>29.3M Views In 90 Days</span>
+          </figure>
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“48.4 million views in 28 days, 556,900 new subscribers, and about $7,900. One month, half a million subs. I keep asking myself if this is my prime.”</blockquote>
+            <figcaption>Gulbil</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>$7,900 In 28 Days</span>
+          </figure>
+        </div>
+        <div class="reviews-col">
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“On March 11th I hit my best revenue day so far, $6,691.42 in twenty-four hours. The line on my chart just goes straight vertical.”</blockquote>
+            <figcaption>Shani</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>$6,691.42 In A Single Day</span>
+          </figure>
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“I crossed 17 million views and I'm at $12k a month now. I've already started putting the same process into a second channel.”</blockquote>
+            <figcaption>Felix</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>$12k/Mo · 17M Views</span>
+          </figure>
+          <figure class="review">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“I finally got the message I'd been chasing: accepted into the YouTube Partner Program. That's the point where it stopped being a hobby.”</blockquote>
+            <figcaption>Ali</figcaption>
+            <span class="review-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Monetized</span>
+          </figure>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="final">
+    <div class="wrap">
+      <div class="final-card">
+        <h2>Get Started Today</h2>
+        <p>Ready To Level Up Your YouTube Game?</p>
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="logo" href="#">
+        <span class="logo-mark"><svg width="9" height="11" viewBox="0 0 9 11" fill="#fff"><path d="M0 0l9 5.5L0 11z"/></svg></span>
+        <span><b>6-Figure</b> Channel Launchpad</span>
+      </a>
+      <nav class="footer-links">
+        <a href="#">Terms Of Service</a>
+        <a href="#">Privacy Policy</a>
+      </nav>
+    </div>
+    <div class="wrap copyright">© <span id="year"></span> 6-Figure Channel Launchpad. All rights reserved.</div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden><img alt="" /></div>
+
+  <script src="assets/proof.js"></script>
+  <script>
+    // Every "Schedule My Free Strategy Session" button jumps to the form under the VSL.
+    document.querySelectorAll(".js-cta").forEach((a) => (a.href = "#apply"));
+
+    /* ---------- Multi-step form ----------
+       Edit QUESTIONS to change the form. Step types:
+         choice  – single answer (radio)       multi – select all that apply (checkbox)
+         contact – first name / phone / email  proof – testimonial carousel, no answer needed */
+    const ICONS = {
+      sprout: '<path d="M7 20h10M12 20v-8M12 12c0-3-2-5-6-5 0 3 2 5 6 5zM12 10c0-3 2-6 6-6 0 3-2 6-6 6z"/>',
+      trend: '<path d="m3 17 6-6 4 4 8-8M14 7h7v7"/>',
+      star: '<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>',
+      crown: '<path d="m3 7 4.5 4L12 5l4.5 6L21 7l-2 11H5z"/>',
+      flame: '<path d="M12 21c-3.9 0-7-2.7-7-6.5 0-3.2 2.3-5.4 3.5-6.5.3 1.6 1.2 2.8 2.5 3.5C11 8 12 5 14.5 3c.4 3 4.5 5.4 4.5 11.5 0 3.8-3.1 6.5-7 6.5z"/>',
+      camera: '<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
+      pause: '<path d="M9 5v14M15 5v14"/>',
+      play: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/>',
+      dollar: '<path d="M12 3v18M16.5 7.5C16 6 14.3 5 12 5c-2.8 0-4.5 1.4-4.5 3.3 0 4.4 9 2.4 9 7 0 2-1.9 3.4-4.5 3.4-2.4 0-4.2-1-4.8-2.7"/>',
+      rocket: '<path d="M5 15c-1.5 1.3-2 4-2 6 2 0 4.7-.5 6-2M9 13l2 2M14.5 4.5C17 2 21 3 21 3s1 4-1.5 6.5L13 16l-5-5z"/><circle cx="15.5" cy="8.5" r="1.3"/>',
+      cog: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>',
+      user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/>',
+      laptop: '<rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/>',
+      building: '<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/>',
+      sofa: '<path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 12a2 2 0 0 1 4 0v2h10v-2a2 2 0 0 1 4 0v5H3zM5 17v2M19 17v2"/>',
+      briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/>',
+    };
+
+    const PROOF = proofList("assets/proof/");
+
+    const QUESTIONS = [
+      {
+        id: "subscribers",
+        type: "choice",
+        title: "How many subscribers do you have across all your YouTube channels?",
+        options: [
+          { label: "0 – 1,000 subscribers", icon: "sprout" },
+          { label: "1,000 – 10,000 subscribers", icon: "trend" },
+          { label: "10,000 – 100,000 subscribers", icon: "star" },
+          { label: "100,000+ subscribers", icon: "crown" },
+        ],
+      },
+      {
+        id: "contact",
+        type: "contact",
+        title: "First, some details so we can get in touch if your application is successful",
+      },
+      {
+        id: "uploads",
+        type: "choice",
+        title: "How many videos are you uploading each week right now?",
+        options: [
+          { label: "4+ a week, I'm consistent", icon: "flame" },
+          { label: "1–3 videos a week", icon: "camera" },
+          { label: "0 a week, I'm not uploading right now", icon: "pause" },
+        ],
+      },
+      {
+        id: "proof",
+        type: "proof",
+        title: "You're in the right place.",
+        sub: "Here are a few students who joined this same workshop and went on to build a real YouTube income with faceless channels:",
+        slides: PROOF,
+      },
+      {
+        id: "help",
+        type: "multi",
+        title: "What do you want the MOST help with right now?",
+        sub: "Select all that apply",
+        options: [
+          { label: "Launching my first faceless channel", icon: "play" },
+          { label: "Getting monetized in the YouTube Partner Program", icon: "dollar" },
+          { label: "Scaling a channel that's already growing", icon: "rocket" },
+          { label: "Automating my channel with editors and systems", icon: "cog" },
+        ],
+      },
+      {
+        id: "job",
+        type: "choice",
+        title: "Do you currently have a job?",
+        options: [
+          { label: "Yes, I have a job", icon: "user" },
+          { label: "I'm a freelancer", icon: "laptop" },
+          { label: "I own a business", icon: "building" },
+          { label: "No, I don't have a job", icon: "sofa" },
+        ],
+      },
+      {
+        id: "income",
+        type: "choice",
+        title: "How much would it take each month to replace your current income?",
+        options: [
+          { label: "$0 – $1,000 / month", icon: "sprout" },
+          { label: "$1,000 – $5,000 / month", icon: "trend" },
+          { label: "$5,000 – $10,000 / month", icon: "briefcase" },
+          { label: "$10,000+ / month", icon: "crown" },
+        ],
+      },
+    ];
+
+    const COUNTRIES = [
+      ["🇺🇸", "+1", "US"], ["🇨🇦", "+1", "CA"], ["🇬🇧", "+44", "GB"], ["🇦🇺", "+61", "AU"],
+      ["🇳🇿", "+64", "NZ"], ["🇮🇪", "+353", "IE"], ["🇩🇪", "+49", "DE"], ["🇫🇷", "+33", "FR"],
+      ["🇳🇱", "+31", "NL"], ["🇪🇸", "+34", "ES"], ["🇮🇹", "+39", "IT"], ["🇸🇪", "+46", "SE"],
+      ["🇦🇪", "+971", "AE"], ["🇮🇳", "+91", "IN"], ["🇸🇬", "+65", "SG"], ["🇿🇦", "+27", "ZA"],
+      ["🇧🇷", "+55", "BR"], ["🇲🇽", "+52", "MX"], ["🇵🇭", "+63", "PH"], ["🇳🇬", "+234", "NG"],
+    ];
+
+    // The progress bar starts here on the first question and fills to 100% on submit.
+    const PROGRESS_START = 73;
+    // Set this to your webhook / CRM endpoint to receive submissions as JSON.
+    const FORM_ENDPOINT = "";
+
+    const quiz = document.getElementById("quiz");
+    const answers = {};
+    let step = 0;
+    let slide = 0;
+
+    const icon = (name, size = 18) =>
+      `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICONS[name] || ""}</svg>`;
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const isReady = (q) =>
+      q.type === "choice" ? !!answers[q.id] :
+      q.type === "multi" ? (answers[q.id] || []).length > 0 :
+      true;
+
+    function optionsHTML(q) {
+      const multi = q.type === "multi";
+      const picked = multi ? answers[q.id] || [] : [answers[q.id]];
+      return `<div class="q-options" role="${multi ? "group" : "radiogroup"}">${q.options
+        .map((o, i) => {
+          const sel = picked.includes(o.label);
+          return `<button type="button" role="${multi ? "checkbox" : "radio"}" aria-checked="${sel}" class="q-opt${sel ? " sel" : ""}" data-i="${i}">
+            <span class="q-ico">${icon(o.icon)}</span>${esc(o.label)}<span class="${multi ? "q-check" : "q-radio"}"></span></button>`;
+        })
+        .join("")}</div>`;
+    }
+
+    function contactHTML() {
+      const c = answers.contact || {};
+      return `
+        <form class="q-fields" id="q-form" novalidate>
+          <label><span>First name <span class="req">*</span></span>
+            <input name="first_name" placeholder="Jane" autocomplete="given-name" required value="${esc(c.first_name || "")}" />
+          </label>
+          <label><span>Phone number <span class="req">*</span></span>
+            <span class="q-phone">
+              <select name="country" aria-label="Country code">${COUNTRIES.map(
+                ([f, d, iso]) => `<option value="${iso}"${(c.country || "US") === iso ? " selected" : ""}>${f} ${d}</option>`
+              ).join("")}</select>
+              <input name="phone" type="tel" placeholder="(201) 555-0123" autocomplete="tel-national" required value="${esc(c.phone || "")}" />
+            </span>
+          </label>
+          <label><span>Email <span class="req">*</span></span>
+            <input name="email" type="email" placeholder="name@example.com" autocomplete="email" required value="${esc(c.email || "")}" />
+          </label>
+        </form>`;
+    }
+
+    function proofHTML(q) {
+      const s = q.slides[slide];
+      return `
+        <div class="q-proof">
+          <div class="q-proof-head">
+            <span class="q-avatar">${esc(s.name[0])}</span>
+            <div><b>${esc(s.name)}</b><span>${esc(s.result)}</span></div>
+          </div>
+          <div class="q-proof-img">
+            <img src="${esc(s.img)}" alt="${esc(s.name)}'s results" onerror="this.remove()" />
+            <span class="ph">${esc(s.img)}</span>
+            ${s.overlay ? `<img class="ov" src="${esc(s.overlay)}" alt="" />` : ""}
+          </div>
+          <div class="q-proof-nav">
+            <div class="q-dots">${q.slides.map((_, i) => `<i class="${i === slide ? "on" : ""}"></i>`).join("")}</div>
+            <div class="q-arrows">
+              <button type="button" class="q-arrow" data-d="-1" aria-label="Previous" ${slide === 0 ? "disabled" : ""}>‹</button>
+              <button type="button" class="q-arrow" data-d="1" aria-label="Next" ${slide === q.slides.length - 1 ? "disabled" : ""}>›</button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function render() {
+      const q = QUESTIONS[step];
+      const last = step === QUESTIONS.length - 1;
+      const pct = Math.round(PROGRESS_START + (step / QUESTIONS.length) * (100 - PROGRESS_START));
+      const body =
+        q.type === "contact" ? contactHTML() :
+        q.type === "proof" ? proofHTML(q) :
+        optionsHTML(q);
+
+      quiz.innerHTML = `
+        <div class="q-progress"><div class="q-progress-fill" style="width:${pct}%">${pct}%</div></div>
+        <h3 class="q-title">${esc(q.title)}</h3>
+        ${q.sub ? `<p class="q-sub">${esc(q.sub)}</p>` : ""}
+        ${body}
+        <button type="button" class="q-next" ${isReady(q) ? "" : "disabled"}>${last ? "Submit" : "Continue"} →</button>
+        ${step > 0 ? '<button type="button" class="q-back">← Back</button>' : ""}`;
+
+      quiz.querySelectorAll(".q-opt").forEach((b) =>
+        b.addEventListener("click", () => {
+          const label = q.options[b.dataset.i].label;
+          if (q.type === "multi") {
+            const set = new Set(answers[q.id] || []);
+            set.has(label) ? set.delete(label) : set.add(label);
+            answers[q.id] = [...set];
+          } else {
+            answers[q.id] = label;
+          }
+          render();
+        })
+      );
+      quiz.querySelectorAll(".q-arrow").forEach((b) =>
+        b.addEventListener("click", () => { slide += Number(b.dataset.d); render(); })
+      );
+      quiz.querySelector(".q-back")?.addEventListener("click", () => { saveContact(); step--; render(); });
+      quiz.querySelector(".q-next").addEventListener("click", next);
+    }
+
+    function saveContact() {
+      const form = quiz.querySelector("#q-form");
+      if (form) answers.contact = Object.fromEntries(new FormData(form));
+      return form;
+    }
+
+    function next() {
+      const form = saveContact();
+      if (form && !form.reportValidity()) return;
+      if (step === QUESTIONS.length - 1) return submit();
+      step++;
+      render();
+      quiz.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    async function submit() {
+      const btn = quiz.querySelector(".q-next");
+      btn.disabled = true;
+      btn.textContent = "Submitting…";
+      const c = answers.contact || {};
+      const dial = (COUNTRIES.find(([, , iso]) => iso === c.country) || COUNTRIES[0])[1];
+      const payload = { ...answers, contact: { ...c, phone_full: `${dial} ${c.phone || ""}`.trim() } };
+      try {
+        if (FORM_ENDPOINT) {
+          await fetch(FORM_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+        } else {
+          console.log("Form submission (no FORM_ENDPOINT set):", payload);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+      quiz.innerHTML = `
+        <div class="q-progress"><div class="q-progress-fill" style="width:100%">100%</div></div>
+        <div class="q-done">
+          <span class="q-ico">${icon("", 26).replace("</svg>", '<path d="M20 6 9 17l-5-5" stroke-width="3"/></svg>')}</span>
+          <h3 class="q-title">You're in!</h3>
+          <p class="q-sub">We've got your answers and will be in touch shortly.</p>
+        </div>`;
+    }
+
+    render();
+
+    mountProofCarousel(PROOF);
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script type="text/javascript">
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/3b9d5e0c-cdfa-409b-9c8d-b0d07c3dcb14/players/6a6a9a2d25b1229f3890948f/v4/player.js";
+    s.async = !0;
+    document.head.appendChild(s);
+  </script>
+</body>
+</html>
