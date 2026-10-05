@@ -1,0 +1,84 @@
+/* 180-day growth chart – shared by the main page and the confirmation pages (built by assets/growth.js). */
+.growth-card {
+  max-width: 940px;
+  margin: 48px auto 0;
+  padding: 28px 28px 24px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 70% at 85% 10%, rgba(26, 92, 255, 0.16), transparent 70%),
+    var(--card);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+.growth-figure { position: relative; margin: 0; overflow-x: auto; scrollbar-width: none; }
+.growth-figure::-webkit-scrollbar { display: none; }
+#growth-chart { display: block; height: auto; overflow: visible; }
+#growth-chart .grid { stroke: rgba(255, 255, 255, 0.07); stroke-width: 1; }
+#growth-chart .base { stroke: rgba(255, 255, 255, 0.18); stroke-width: 1; }
+#growth-chart .tick { fill: var(--muted); font: 500 12px var(--sans); }
+#growth-chart .axis-title { fill: #6b7184; font: 600 11px var(--sans); letter-spacing: 0.12em; text-transform: uppercase; }
+#growth-chart .line { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 10px rgba(91, 140, 255, 0.55)); }
+#growth-chart .drop { stroke: rgba(91, 140, 255, 0.35); stroke-width: 1; stroke-dasharray: 3 4; }
+#growth-chart .dot { fill: #fff; stroke: var(--blue); stroke-width: 4; }
+#growth-chart .ring { fill: none; stroke: var(--accent); stroke-width: 2; transform-box: fill-box; transform-origin: center; }
+#growth-chart .chip rect { fill: #0f1320; stroke: var(--blue-line); stroke-width: 1; }
+#growth-chart .chip .k { fill: var(--muted); font: 600 11px var(--sans); letter-spacing: 0.08em; text-transform: uppercase; }
+#growth-chart .chip .v { fill: #fff; font: 800 16px var(--display); }
+#growth-chart .cross { stroke: rgba(255, 255, 255, 0.35); stroke-width: 1; }
+#growth-chart .focus { fill: var(--accent); stroke: #0f1320; stroke-width: 2; }
+.growth-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(12, 15, 25, 0.95);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 14px));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.growth-tip b { color: #fff; }
+.growth-swipe { margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--accent); text-align: center; }
+.growth-swipe[hidden] { display: none; }
+.growth-note { margin-top: 20px; font-size: 12px; color: #6b7184; text-align: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@keyframes growth-pulse { from { transform: scale(1); opacity: 0.8; } to { transform: scale(2.6); opacity: 0; } }
+@media (prefers-reduced-motion: no-preference) {
+  #growth-chart .ring { animation: growth-pulse 2.2s ease-out infinite; }
+}
+
+/* "We help you through every step" box (confirmation pages) */
+.help-card {
+  max-width: 940px;
+  margin: 24px auto 0;
+  padding: 32px 28px;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  text-align: center;
+}
+.help-card h3 { font-family: var(--display); font-weight: 800; font-size: clamp(22px, 2.8vw, 28px); line-height: 1.25; }
+.help-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; text-align: left; }
+.help-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: rgba(15, 18, 28, 0.6);
+  border: 1px solid var(--line-soft);
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.4;
+}
+.help-list .ico { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: #fff; }
+@media (max-width: 760px) {
+  .growth-card { padding: 18px 14px 16px; }
+  .help-card { padding: 24px 16px; }
+  .help-list { grid-template-columns: 1fr; }
+}
