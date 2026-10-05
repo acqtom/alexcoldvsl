@@ -201,61 +201,6 @@
     .proof-title b { color: #fff; }
     .proof-track { margin-top: 24px; }
 
-    /* ---------- How it works (light section) ---------- */
-    .how { padding: 72px 0 80px; }
-    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
-    .how-art { height: 180px; display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .how-step {
-      margin-top: 20px;
-      padding: 8px;
-      border-radius: 8px;
-      text-align: center;
-      color: #fff;
-      font-family: var(--display);
-      font-weight: 800;
-      font-size: 16px;
-    }
-    .how-step.r { background: #dc1717; }
-    .how-step.g { background: #17993f; }
-    .how h3 { margin-top: 20px; font-size: 19px; letter-spacing: -0.01em; }
-    .how p { margin-top: 8px; color: var(--muted); font-size: 15px; line-height: 1.6; }
-
-    .phone {
-      position: relative;
-      width: 102px;
-      height: 176px;
-      padding: 12px;
-      border-radius: 14px;
-      border: 3px solid #d9d9dd;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .phone { color: #14161f; }
-    .phone.green { border-color: #1a7a36; }
-    .phone.soft { border-color: #b9dcc4; width: 80px; height: 136px; padding: 9px; border-width: 2px; }
-    .phone .screen { flex: none; height: 76px; border-radius: 8px; display: grid; place-items: center; background: #ececef; }
-    .phone.soft .screen { height: 48px; }
-    .screen.pink { background: #fde4e4; }
-    .screen.mint { background: #e1f3e6; }
-    .tri { width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 14px solid #c3c3c8; }
-    .tri.red { border-left-color: #dc1717; }
-    .tri.green { border-left-color: #1a7a36; }
-    .tri.sm { border-top-width: 6px; border-bottom-width: 6px; border-left-width: 9px; }
-    .bar { height: 7px; border-radius: 4px; background: #e6e6ea; }
-    .bar.fill { background: linear-gradient(90deg, #dc1717 78%, #e6e6ea 78%); }
-    .bar.fill.more { background: linear-gradient(90deg, #dc1717 90%, #e6e6ea 90%); }
-    .mini { font-size: 9px; font-weight: 800; font-family: var(--display); margin-bottom: -4px; }
-    .badge-1k { position: absolute; right: 10px; bottom: 12px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: #fde4e4; color: #dc1717; font-size: 9px; font-weight: 800; }
-    .payout { flex: 1; border-radius: 8px; background: #e1f3e6; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #1a7a36; font-family: var(--display); font-weight: 800; font-size: 11px; line-height: 1.2; }
-    .payout .ck { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #1a7a36; color: #fff; margin-bottom: 4px; }
-    .money { text-align: center; color: #1a7a36; font-family: var(--display); font-weight: 800; font-size: 18px; }
-    .phone.soft .money { font-size: 11px; color: #4a9a62; }
-    .bars { flex: 1; display: flex; align-items: flex-end; justify-content: space-around; }
-    .bars i { display: block; width: 6px; border-radius: 3px; background: #1a7a36; }
-    .phone.soft .bars i { width: 4px; background: #8cc49c; }
-
     /* ---------- Application popup ---------- */
     .apply-modal {
       position: fixed;
@@ -491,7 +436,6 @@
     @media (max-width: 960px) {
       .checks { gap: 12px 28px; }
       .reviews-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
-      .how-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
     }
     @media (max-width: 760px) {
       section { padding: 56px 0; }
@@ -517,7 +461,6 @@
       .footer-links { align-items: flex-start; }
     }
     @media (max-width: 520px) {
-      .how-grid { grid-template-columns: 1fr; }
       .topbar-inner { flex-direction: column; justify-content: center; gap: 4px; padding-top: 10px; padding-bottom: 10px; }
     }
     @media (max-width: 420px) {
@@ -604,82 +547,6 @@
 
         <p class="growth-swipe" id="growth-swipe" hidden>Swipe to see all 180 days →</p>
         <p class="growth-note">Illustrative path based on what our students have done. Results vary with your topic, consistency and effort.</p>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= HOW IT WORKS ================= -->
-  <section class="how">
-    <div class="wrap">
-      <h2 class="section-title">How Faceless YouTube Automation Works</h2>
-      <div class="how-grid">
-        <div>
-          <div class="how-art">
-            <div class="phone">
-              <div class="screen"><span class="tri"></span></div>
-              <div class="bar" style="width:70%;margin-top:6px"></div>
-              <div class="bar" style="width:40%"></div>
-              <span class="badge-1k">1k</span>
-            </div>
-          </div>
-          <div class="how-step r">1</div>
-          <h3>Post Faceless Shorts</h3>
-          <p>We give you the AI workflows, so you're not editing frame by frame.</p>
-        </div>
-        <div>
-          <div class="how-art">
-            <div class="phone">
-              <div class="screen pink"><span class="tri red"></span></div>
-              <div class="mini" style="margin-top:6px">1K SUBS</div>
-              <div class="bar fill"></div>
-              <div class="mini" style="margin-top:4px">10M VIEWS</div>
-              <div class="bar fill more"></div>
-            </div>
-          </div>
-          <div class="how-step r">2</div>
-          <h3>Get Monetized</h3>
-          <p>1,000 subscribers and 10M views within 90 days. We help you get both, fast.</p>
-        </div>
-        <div>
-          <div class="how-art">
-            <div class="phone green">
-              <div class="screen mint" style="height:64px"><span class="tri green"></span></div>
-              <div class="payout">
-                <span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-                PAYOUT!<br />$$$
-              </div>
-            </div>
-          </div>
-          <div class="how-step g">3</div>
-          <h3>Collect Every Month</h3>
-          <p>YouTube runs ads on your videos and hands you a share of what they earn.</p>
-        </div>
-        <div>
-          <div class="how-art">
-            <div class="phone soft">
-              <div class="screen mint"><span class="tri green sm"></span></div>
-              <div class="money">$$$</div>
-              <div class="bars"><i style="height:50%"></i><i style="height:80%"></i><i style="height:45%"></i><i style="height:70%"></i></div>
-            </div>
-            <div class="phone green">
-              <div class="screen mint" style="height:52px"><span class="tri green"></span></div>
-              <div class="money">$$$</div>
-              <div class="bars"><i style="height:55%"></i><i style="height:90%"></i><i style="height:50%"></i><i style="height:100%"></i></div>
-            </div>
-            <div class="phone soft">
-              <div class="screen mint"><span class="tri green sm"></span></div>
-              <div class="money">$$$</div>
-              <div class="bars"><i style="height:45%"></i><i style="height:75%"></i><i style="height:55%"></i><i style="height:85%"></i></div>
-            </div>
-          </div>
-          <div class="how-step g">4</div>
-          <h3>Grow More Channels</h3>
-          <p>We show you how to outsource to vetted editors and run more than one.</p>
-        </div>
       </div>
 
       <div class="cta-row">
