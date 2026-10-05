@@ -382,6 +382,34 @@
     }
     .types .ico { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: #fff; }
 
+    /* ---------- Pain points ---------- */
+    .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; margin: 56px auto 0; }
+    .pains .pain { position: relative; padding: 36px; border-radius: 18px; border: 1px solid var(--line); background: var(--card); }
+    .pains .pain::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.7), transparent);
+    }
+    .pains .num {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid var(--blue-line);
+      background: var(--blue-tint);
+      color: var(--accent);
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .pains .pain h3 { margin-top: 24px; font-size: 23px; line-height: 1.25; }
+    .pains .pain p { margin-top: 16px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+
     /* ---------- Head coach ---------- */
     .coach-card {
       max-width: 840px;
@@ -479,6 +507,8 @@
       .vs-card { padding: 28px 22px; }
       .types-grid { grid-template-columns: 1fr; }
       .types .panel { padding: 28px 22px; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .pains .pain { padding: 28px 22px; }
       .coach-card { padding: 28px 22px; }
       .coach-top { grid-template-columns: 1fr; gap: 20px; }
       .coach-stats { grid-template-columns: 1fr 1fr; row-gap: 24px; }
@@ -731,6 +761,50 @@
             <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Need to know why it's not working</li>
             <li><span class="ico"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Want someone experienced fixing your channel</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn js-cta" href="#">Schedule My Free Strategy Session <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAIN POINTS ================= -->
+  <section class="pains">
+    <div class="wrap">
+      <h2 class="section-title">Do Any Of These<br /><span class="gold">Sound Familiar?</span></h2>
+      <p class="section-sub">These are the gaps that stop capable creators from scaling their channels.</p>
+      <div class="pain-grid">
+        <div class="pain">
+          <div class="num">1</div>
+          <h3>You Don't Know Which Niche To Pick</h3>
+          <p>Every YouTube video tells you a different "untapped" niche. So you've been stuck in research mode for months, scared of wasting time on one that was never going to get monetized in the first place. It's not that you won't do the work. You just don't want to do it in the wrong direction.</p>
+        </div>
+        <div class="pain">
+          <div class="num">2</div>
+          <h3>You're In A Good Niche But Nobody's Watching</h3>
+          <p>You picked a niche that worked for someone else, you're posting, and the videos are still only doing a few hundred views. You've watched your retention graph fall off a cliff in the first two seconds and you don't know how to stop it. The niche isn't the problem anymore. The editing and content strategy is.</p>
+        </div>
+        <div class="pain">
+          <div class="num">3</div>
+          <h3>You Post, But Can't Get Consistent Results</h3>
+          <p>You don't have a reliable workflow, so every video is built from scratch. Some days it takes you an hour, some days it takes you five. One week you post daily, the next you don't post at all. Your motivation dips when you see your channel doing worse and worse every single video.</p>
+        </div>
+        <div class="pain">
+          <div class="num">4</div>
+          <h3>You Don't Know How To Get Monetized</h3>
+          <p>You've seen YouTube reject channels for the Partner Program that met the minimum requirements. So you're worried you'll grind out a hundred videos, finally hit the requirements, and still get told no, with no idea why. You don't need hope that it'll happen. You need to know you're building something that actually qualifies.</p>
+        </div>
+        <div class="pain">
+          <div class="num">5</div>
+          <h3>You Don't Know How To Scale Past One Channel</h3>
+          <p>Maybe you've got one that's starting to get traction. But you're the one making every video, so the second it stops, the channel stops. You don't know how to bring in an editor who does it your way, or run more than one channel without drowning. So you're stuck at the ceiling of your own time.</p>
+        </div>
+        <div class="pain">
+          <div class="num">6</div>
+          <h3>You're Doing It Completely Alone</h3>
+          <p>Nobody's reviewing your videos before they go up. Nobody's catching the mistake that's killing your views. It's just you, a pile of tutorials, and a guess. And when it's not working, you've got no one who's actually done it to tell you what to change. So you're taking more guesses without any sign of life.</p>
         </div>
       </div>
 
