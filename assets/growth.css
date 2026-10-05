@@ -13,12 +13,22 @@
 .growth-figure { position: relative; margin: 0; }
 #growth-chart { display: block; width: 100%; height: auto; overflow: visible; }
 /* Phone: the chart is drawn large and scaled down, so text sizes here are before scaling */
-#growth-chart.is-fit .tick { font-size: 24px; }
+#growth-chart.is-fit .tick { font-size: 26px; }
 #growth-chart.is-fit .axis-title { font-size: 18px; }
-#growth-chart.is-fit .chip .k { font-size: 17px; }
-#growth-chart.is-fit .chip .v { font-size: 23px; }
+#growth-chart.is-fit .chip .k { font-size: 19px; }
+#growth-chart.is-fit .chip .v { font-size: 27px; }
 #growth-chart.is-fit .line { stroke-width: 5; }
 #growth-chart.is-fit .dot { stroke-width: 6; }
+#growth-chart .leader { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 4 5; opacity: 0.7; }
+/* Draw-in: milestones pop in one after another as the line reaches them */
+#growth-chart .ms { transform-box: fill-box; transform-origin: center; }
+#growth-chart .is-pending > .ms { opacity: 0; transform: translateY(10px) scale(0.96); }
+#growth-chart .is-pending > .ms.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(.2,.8,.2,1);
+  transition-delay: calc(0.35s + var(--i) * 0.26s);
+}
 #growth-chart .grid { stroke: rgba(255, 255, 255, 0.07); stroke-width: 1; }
 #growth-chart .base { stroke: rgba(255, 255, 255, 0.18); stroke-width: 1; }
 #growth-chart .tick { fill: var(--muted); font: 500 12px var(--sans); }

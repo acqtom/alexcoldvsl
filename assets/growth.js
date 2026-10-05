@@ -45,12 +45,11 @@
 
   let drawn = false;
   function render() {
-    // Narrow screens get a full-size chart that scrolls sideways, so every label stays readable
-    // Narrow screens draw the chart at desktop proportions (taller, with larger text) and scale it
-    // down to fit, so it looks like the desktop chart with every label readable and nothing cut off.
+    // Narrow screens draw a tall chart with larger text and scale it down to fit, so the labels can
+    // step up the page alongside the line instead of crowding together.
     const fit = svg.parentElement.clientWidth < 600;
     const W = fit ? 760 : svg.parentElement.clientWidth;
-    const H = fit ? 640 : 400;
+    const H = fit ? 1240 : 400;
     svg.classList.toggle("is-fit", fit);
     const small = false;
     const pad = fit ? { l: 84, r: 30, t: 24, b: 64 } : { l: 52, r: 28, t: 24, b: 40 };
@@ -84,29 +83,40 @@
     const marks = el("g", {}, svg);
     MILESTONES.forEach((ms, i) => {
       const cx = X(ms.day), cy = Y(ms.views);
-      el("line", { class: "drop", x1: cx, x2: cx, y1: cy, y2: Y(0) }, marks);
-      el("circle", { class: "ring", cx, cy, r: 7, style: `animation-delay:${i * 0.4}s` }, marks);
-      el("circle", { class: "dot", cx, cy, r: 7 }, marks);
+      const g = el("g", { class: "ms", style: `--i:${i}` }, marks);
+      if (!fit) el("line", { class: "drop", x1: cx, x2: cx, y1: cy, y2: Y(0) }, g);
+      el("circle", { class: "ring", cx, cy, r: 7, style: `animation-delay:${i * 0.4}s` }, g);
+      el("circle", { class: "dot", cx, cy, r: 7 }, g);
 
-      const chip = el("g", { class: "chip" }, marks);
+      const chip = el("g", { class: "chip" }, g);
       const k = el("text", { class: "k" }, chip);
       k.textContent = "Day " + ms.day;
       const v = el("text", { class: "v" }, chip);
       v.textContent = ms.label;
       const w = Math.max(k.getComputedTextLength(), v.getComputedTextLength()) + (fit ? 32 : 24);
-      const h = fit ? 66 : 48;
-      // chips sit above each dot; the first leans left so it clears its neighbour
-      // (on phones the second leans right too, clear of the first)
-      let bx = i === 0 ? cx - w + 16 : fit && i === 1 ? cx - 16 : cx - w / 2;
+      const h = fit ? 74 : 48;
+      // Desktop: chips sit above each dot, the first leaning left to clear its neighbour.
+      let bx = i === 0 ? cx - w + 16 : cx - w / 2;
       let by = cy - h - 18;
-      // phones: lift the first label above the second so they don't overlap
-      if (fit && i === 0) by = Y(MILESTONES[1].views) - 2 * h - 28;
+      if (fit) {
+        if (i === 0) {
+          // Phones: the first chip sits in the open space under the curve, with a pointer to its dot
+          bx = X(MILESTONES[1].day) + 22;
+          by = Y(0) - h - 22;
+          el("line", { class: "leader", x1: cx + 9, y1: cy - 4, x2: bx, y2: by + h / 2 }, chip);
+        } else {
+          // ...the rest sit up-and-left of their dot, clear of the line rising into it
+          bx = cx - w - 14;
+          by = cy - h - 10;
+        }
+      }
       bx = Math.max(pad.l, Math.min(bx, W - pad.r - w));
       by = Math.max(0, by);
-      el("rect", { x: bx, y: by, width: w, height: h, rx: 10 }, chip).parentNode.insertBefore(chip.lastChild, chip.firstChild);
+      const rect = el("rect", { x: bx, y: by, width: w, height: h, rx: 10 }, chip);
+      chip.insertBefore(rect, k);
       const ip = fit ? 16 : 12;
-      k.setAttribute("x", bx + ip); k.setAttribute("y", by + (fit ? 26 : 19));
-      v.setAttribute("x", bx + ip); v.setAttribute("y", by + (fit ? 53 : 38));
+      k.setAttribute("x", bx + ip); k.setAttribute("y", by + (fit ? 29 : 19));
+      v.setAttribute("x", bx + ip); v.setAttribute("y", by + (fit ? 60 : 38));
     });
 
     // hover layer: crosshair + focus dot + tooltip
@@ -138,23 +148,34 @@
       path.style.strokeDasharray = len;
       path.style.strokeDashoffset = len;
       area.style.opacity = 0;
-      marks.style.opacity = 0;
+      marks.classList.add("is-pending");
       const io = new IntersectionObserver((entries) => {
         if (!entries[0].isIntersecting) return;
         io.disconnect();
         drawn = true;
         path.style.transition = "stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1)";
         area.style.transition = "opacity 1.2s ease .6s";
-        marks.style.transition = "opacity .6s ease 1.4s";
         path.style.strokeDashoffset = 0;
         area.style.opacity = 1;
         marks.style.opacity = 1;
+        // each milestone pops in as the line reaches it
+        marks.querySelectorAll(".ms").forEach((n) => n.classList.add("is-in"));
       }, { threshold: 0.35 });
       io.observe(svg);
     }
   }
 
   render();
-  let rt;
-  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { drawn = true; render(); }, 150); });
+  // Only redraw when the width changes. Phones fire resize while scrolling (the address bar
+  // collapsing), which used to redraw the finished chart before the animation could play.
+  let rt, lastWidth = svg.parentElement.clientWidth;
+  window.addEventListener("resize", () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => {
+      const w = svg.parentElement.clientWidth;
+      if (w === lastWidth) return;
+      lastWidth = w;
+      render();
+    }, 150);
+  });
 })();
