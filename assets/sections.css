@@ -1,0 +1,163 @@
+/* Sections shared by the confirmation pages: with vs without, two types, pain points, testimonials.
+   Uses the page's colour tokens (--card, --line, --blue, --accent, ...). */
+.vs-card, .types .panel, .pains .pain, .review { text-align: left; }
+/* ---------- With vs without ---------- */
+.vs-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; margin: 0 auto; }
+.vs-card { padding: 36px; border-radius: 18px; border: 1px solid var(--line-soft); background: rgba(15, 18, 28, 0.7); }
+.vs-card.good {
+  border-color: var(--blue-line);
+  background: linear-gradient(160deg, rgba(26, 92, 255, 0.22) 0%, var(--card) 55%);
+  box-shadow: 0 30px 90px rgba(26, 92, 255, 0.12);
+}
+.vs-head { display: flex; align-items: center; gap: 16px; padding-bottom: 22px; margin-bottom: 24px; border-bottom: 1px solid var(--line-soft); }
+.vs-icon { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 10px; background: rgba(255, 255, 255, 0.08); color: var(--muted); }
+.good .vs-icon { background: var(--blue); color: #fff; }
+.vs .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.vs .good .eyebrow { color: var(--accent); }
+.vs-head h3 { font-size: 24px; }
+.vs-mid {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 18px;
+  box-shadow: 0 0 0 6px #1a1f30;
+  z-index: 2;
+}
+.vs .list { list-style: none; display: grid; gap: 12px; }
+.vs .list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: rgba(15, 18, 28, 0.6);
+  border: 1px solid var(--line-soft);
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.4;
+}
+.vs .ico { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; color: #fff; }
+.vs .ico.x { background: #3a4155; }
+.vs .ico.ok { background: var(--blue); }
+
+/* ---------- Two types ---------- */
+.types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; margin: 56px auto 0; }
+.types .panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 38px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+.types .panel::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.8), transparent);
+}
+.types .panel h3 { font-size: 28px; }
+.types .panel p { margin-top: 16px; color: var(--muted); font-size: 17px; line-height: 1.7; }
+.types .list { list-style: none; display: grid; gap: 12px; margin-top: auto; padding-top: 32px; }
+.types .list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: rgba(15, 18, 28, 0.6);
+  border: 1px solid var(--line-soft);
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.4;
+}
+.types .ico { flex: none; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: #fff; }
+
+/* ---------- Pain points ---------- */
+.pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; margin: 56px auto 0; }
+.pains .pain { position: relative; padding: 36px; border-radius: 18px; border: 1px solid var(--line); background: var(--card); }
+.pains .pain::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(91, 140, 255, 0.7), transparent);
+}
+.pains .num {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--blue-line);
+  background: var(--blue-tint);
+  color: var(--accent);
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 18px;
+}
+.pains .pain h3 { margin-top: 24px; font-size: 23px; line-height: 1.25; }
+.pains .pain p { margin-top: 16px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+
+/* ---------- Testimonials ---------- */
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; align-items: start; }
+.reviews-col { display: grid; gap: 20px; }
+.review { padding: 24px; border-radius: 16px; border: 1px solid var(--line); background: var(--card); }
+.review-stars { color: var(--blue); font-size: 17px; letter-spacing: 2px; }
+.review blockquote { margin-top: 12px; color: var(--body); font-size: 15px; line-height: 1.6; }
+.review figcaption { margin-top: 16px; font-weight: 700; font-size: 15px; color: #fff; }
+.review-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--blue-tint);
+  border: 1px solid var(--blue-line);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .reviews-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 760px) {
+  .vs-grid { grid-template-columns: 1fr; gap: 48px; }
+  .types-grid, .pain-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .vs-grid, .types-grid, .pain-grid, .reviews-grid { margin-top: 32px; }
+  .vs-grid { gap: 40px; }
+  .vs-card, .types .panel, .pains .pain { padding: 24px 20px; }
+  .vs-head { gap: 12px; padding-bottom: 18px; margin-bottom: 18px; }
+  .vs-icon { width: 40px; height: 40px; }
+  .vs-head h3, .types .panel h3 { font-size: 20px; }
+  .vs .eyebrow { font-size: 11px; }
+  .vs-mid { width: 52px; height: 52px; font-size: 16px; }
+  .types .panel p, .pains .pain p { font-size: 15px; line-height: 1.6; }
+  .types .list { padding-top: 24px; gap: 10px; }
+  .vs .list { gap: 10px; }
+  .vs .list li, .types .list li { font-size: 15px; padding: 10px 14px; gap: 12px; }
+  .pains .num { width: 38px; height: 38px; font-size: 16px; }
+  .pains .pain h3 { font-size: 20px; margin-top: 18px; }
+  .pains .pain p { margin-top: 12px; }
+  .review { padding: 20px; }
+}
